@@ -1,0 +1,132 @@
+﻿@model IEnumerable<HospiceWebPortal.Models.Meeting>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    @*/////SideBar//////*@
+    <div class="col-md-4">
+        @*/////Action Required//////*@
+        <div class="gray-content">
+            <h2 class="green-header">Action Required</h2>
+            <p>
+                <strong>RSVP to Hike For Hospice</strong><br>
+                <a href="#">Yes</a> | <a href="#">No</a> | <a href="#">Maybe</a><br><br>
+                <strong>RSVP to the 5 Car Draw</strong><br>
+                <a href="#">Yes</a> | <a href="#">No</a> | <a href="#">Maybe</a>
+            </p>
+        </div>
+        @*/////Events//////*@
+        <div class="gray-content">
+            <h2 class="green-header">Events</h2>
+            @{int i = 0;}
+            @foreach (var item in Model)
+            {
+                <p>
+                    <strong>@Html.DisplayFor(modelItem => item.Name)</strong> &nbsp; <i>@Html.DisplayFor(modelItem => item.Date)</i><br />
+                    @item.Description.Substring(0, Math.Min(item.Description.Length, 125))<br />
+                </p>
+                if (i == 2)
+                {
+                    break;
+                }
+                i++;
+            }
+        </div>
+        @*/////Sidebar Announcements//////*@
+        <div class="gray-content">
+
+            <h2 class="green-header">Announcements</h2>
+
+            <p style="text-align:left; padding: 0 15px 0 20px">
+                <strong>What Is Lorem Ipsum?</strong><br> Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br><br> <strong>Why Do We Use It?</strong><br>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <br><br> <strong>Where can I get some?</strong><br>
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum.
+            </p>
+
+        </div>
+        @*/////Common Resources//////*@
+        <div class="gray-content">
+
+            <h2 class="green-header">Common Resources</h2>
+
+            <p class="common-resources">
+
+                <a href="#">Health and Safety</a><br>
+                <a href="#">Incident Report</a><br>
+                <a href="#">Mileage & Expense</a><br>
+                <a href="#">Volunteer Ticket Seller Information Sheet</a><br>
+
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+
+        <p class="btn btn-default " style="text-decoration:none; margin: 20px 0 10px 0px; ">
+            @Html.ActionLink("Create New Meeting", "Create")
+        </p>
+        @foreach (var item in Model)
+        {
+            <div class="gray-content">
+                <div class="green-header">
+
+                    <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1.65em; color:black; padding-left:5px; float:right;">
+                        <i class="glyphicon glyphicon-trash"></i>
+                        <span class="sr-only" style="text-align:right;">Delete</span>
+                    </a>
+                    <h2 style="display:inline;">@Html.DisplayFor(modelItem => item.Name)</h2>
+                    <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1.65em; color:black; float:right;">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                        <span class="sr-only" style="text-align:right;">Edit</span>
+                    </a>
+                </div>
+
+                @*Meeting Date*@
+                <div class="col-md-12" style="padding-top:10px; line-height:2em;">
+                    <strong>
+                        Date:
+                    </strong>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </div>
+
+                @*Author Name*@
+                <div class="col-md-12" style="line-height:2em;">
+                    <strong>
+                        Location:
+                    </strong>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </div>
+
+                @*Event Type*@
+                <div class="col-md-12" style="line-height:2em;">
+                    <strong>
+                        Event Type:
+                    </strong>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </div>
+
+                @*/////Article Content//////*@
+                <div class="col-md-12" style="padding: 5px 15px 5px 15px">
+                    <div>
+                        <strong>
+                            Description:
+                        </strong>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </div>
+                </div>
+
+                @*RSVP*@
+                <div class="col-md-12" style="line-height:3em;">
+                    <strong style="font-size:1.7em;">
+                        RSVP:
+                    </strong>
+                    <a href="#" class="btn btn-success">Yes</a> <a href="#" class="btn btn-danger">No</a> <a href="#" class="btn btn-primary">Maybe</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,193 @@
+﻿html, body
+{
+    height:100%; /* needed for container min-height */
+        font-family: 'Open Sans';
+}
+
+body {
+    position:relative; /* needed for footer positioning*/
+    margin:0 auto; /* center, not in IE5 */
+    height:auto !important; /* real browsers */
+    height:100%; /* IE6: treaded as min-height*/
+    min-height:100%; /* real browsers */
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: 'Open Sans';
+}
+
+h2
+{
+    font-family: 'Open Sans';
+}
+
+.common-resources p, a, href
+{
+    /*color: #7a5ba5;*/
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    position:relative; /* needed for footer positioning*/
+    margin:0 auto; /* center, not in IE5 */
+    min-height:100%; /* real browsers */
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom:100px;
+    font-family: 'Open Sans';
+    /*min-height:100%;
+    overflow:auto;
+    margin-bottom:-115px;*/
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.row {background-color:#cde4a2;}
+
+.green-header {
+    text-align: left;
+    background-color: #80a23e;
+    padding: 10px 10px 10px 20px;
+
+}
+.gray-content{
+    border-radius: 0 0 15px 15px;
+    background-color: #ffffff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.gray-content p {
+    padding: 0 20px 0px 20px;
+} 
+
+.gray-content .row p {padding: 20px 0 0 0; background-color: white; margin-left: -15px;}
+
+.gray-content .row img {padding: 20px 0 0 0; margin-left: -15px; background-color: white;}
+
+.gray-content .row {background-color: white; margin: 0 20px 0 20px;}
+
+.gray-content-event {
+    padding: 0 0px 10px 0px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.gray-content img {
+    padding: 20px 20px 0px 20px;
+    width: 100%;
+}
+
+html {
+    font-family: myFirstFont2, Arial, sans-serif;
+}
+
+@font-face {
+    font-family: myFirstFont2;
+    src: url(fonts/Raleway-Light.ttf);
+}
+
+li {
+    color: white;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    clear: both;
+    background-color: #80a23e;
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 10px;
+
+}
+
+#logo {
+    width: 80%;
+    margin-top: -2.4em;
+}
+
+.login {
+    margin-top: 10%;
+}
+
+#login-header {
+    margin-top: -3.5%;
+}
+
+.popover{
+    width:1000px;   
+}
+
+.mem-header
+{
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.memoriam-image
+{
+    padding-left:25px;
+    padding-right:25px;
+}
+
+.memoriam-image img
+{
+    width:60%;
+    float:right;
+    height:60%;
+    margin-right:-20px;
+    margin-top:-20px;
+    margin-bottom:10px;
+}
+
+@media (max-width: 967px) {
+    #sbar-announcements, #sbar-resources, #sbar-events, #sbar-action {
+        display:none !important;
+    }
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+    .navbar-collapse.collapse.in {
+        display: block !important;
+    }
+    .navbar-header .collapse, .navbar-toggle {
+        display:block !important;
+    }
+    .navbar-header {
+        float:none;
+    }
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}

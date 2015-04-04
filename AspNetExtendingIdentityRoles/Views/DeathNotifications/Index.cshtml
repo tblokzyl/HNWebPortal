@@ -1,0 +1,201 @@
+﻿@model IEnumerable<HospiceWebPortal.Models.DeathNotification>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    @*/////SideBar//////*@
+    <div class="col-md-4">
+        @*/////Action Required//////*@
+        <div class="gray-content">
+            <h2 class="green-header">Action Required</h2>
+            <p>
+                <strong>RSVP to Hike For Hospice</strong><br>
+                <a href="#">Yes</a> | <a href="#">No</a> | <a href="#">Maybe</a><br><br>
+                <strong>RSVP to the 5 Car Draw</strong><br>
+                <a href="#">Yes</a> | <a href="#">No</a> | <a href="#">Maybe</a>
+            </p>
+        </div>
+        @*/////Events//////*@
+        <div class="gray-content">
+            <h2 class="green-header">Events</h2>
+            <p>
+                <b>January 25, 2015</b> Wavelength<br />
+                Discuss hospice niagara web portal.
+            </p>
+            <p>
+                <b>January 26, 2015</b> Timothy Blokzyl<br />
+                Discuss progress with Dave and Peter.
+            </p>
+        </div>
+        @*/////Sidebar Announcements//////*@
+        <div class="gray-content">
+            <h2 class="green-header">Announcements</h2>
+
+            <p style="text-align:left; padding: 0 15px 0 20px">
+                @*@{int i = 0;}
+                    @foreach (var item in Model)
+                    {
+                        <strong>@Html.DisplayFor(modelItem => item.FirstName)</strong><br />
+                        if (i == 2)
+                        {
+                            break;
+                        }
+                        i++;
+                    }*@
+                @*@for (i=0; i<3; i++; var item in Model)
+                    {
+                        <strong>@Html.DisplayFor(modelItem => item.FirstName)</strong><br>
+                    }*@
+                <strong>Why Do We Use It?</strong><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br><br> <strong>Why Do We Use It?</strong><br>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <br><br> <strong>Where can I get some?</strong><br>
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum.
+            </p>
+
+        </div>
+        @*/////Common Resources//////*@
+        <div class="gray-content">
+
+            <h2 class="green-header">Common Resources</h2>
+
+            <p class="common-resources">
+
+                <a href="#">Health and Safety</a><br>
+                <a href="#">Incident Report</a><br>
+                <a href="#">Mileage & Expense</a><br>
+                <a href="#">Volunteer Ticket Seller Information Sheet</a><br>
+
+            </p>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="gray-content" style="margin-top:20px;">
+            <div class=" green-header pull-right">
+                <form class="navbar-form" role="search" style=" margin:0 -10px 0 -15px;">
+                    <div class="input-group">
+                        <h2 style="display:inline;">In Memoriam...</h2>
+                        <input type="text" class="form-control pull-right" placeholder="Search" name="searchString">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" style="padding:7px 7px 6px 7px;" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            <button class="btn btn-default" style="padding:7px 7px 6px 7px;">@Html.ActionLink(" ", "Index")<i class="glyphicon glyphicon-remove"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            @if (Model.Count() == 0)
+            {
+                <div class="col-md-12" style="padding-top:20px; line-height:30px">
+                    <strong style="padding-bottom:-20px;">No results found for @ViewData["Search"] </strong>
+                    <strong><br> @Html.ActionLink("Refresh Page", "Index")</strong>
+                </div>
+            }
+        </div>
+
+
+
+        @if (Model.Count() > 0)
+        {
+
+            @*@Html.TextBox("SearchString", null, new { @class = "form-control pull-right", @style = "display:inline;"})
+                <input type="submit" class="btn btn-default pull-right" value="Search" />*@
+
+            @*<div class="contact-content" style="margin: 0 10px 0 10px;">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+                        </th>
+                        <th>
+                            @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+                        </th>
+                        <th>
+                            @Html.ActionLink("Location", "Index", new { sortOrder = ViewBag.LocationSortParm })
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Notes)
+                        </th>
+                        <th></th>
+                    </tr>*@
+
+            @*/////Get Articles//////*@
+            <div class="col-md-12">
+                <p class="btn btn-default " style="text-decoration:none; margin: 10px 0 10px -15px; ">
+                    @Html.ActionLink("Create Death Notification", "Create", new { @class = "btn btn-primary" })
+                </p>
+            </div>
+
+            foreach (var item in Model)
+            {
+                <div class="gray-content">
+                    @*Article Title & Icons*@
+                    <div class="green-header">
+
+                        <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1.65em; color:black; padding-left:5px; float:right;">
+                            <i class="glyphicon glyphicon-trash"></i>
+                            <span class="sr-only" style="text-align:right;">Delete</span>
+                        </a>
+                        <h2 style="display:inline;">@Html.DisplayFor(modelItem => item.Name)</h2>
+                        <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1.65em; color:black; float:right;">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            <span class="sr-only" style="text-align:right;">Edit</span>
+                        </a>
+                    </div>
+
+                    @*Author Name*@
+                    <div class="mem-header">
+                        <div class="col-md-6" style="text-align:left; padding-top:10px;">
+                            <strong>
+                                Passed Away On:
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </strong>
+                        </div>
+
+                        @*Date of Publication*@
+                        <div class="col-md-6" style="text-align:right;padding-top:10px;">
+                            @Html.DisplayFor(modelItem => item.Location)
+                        </div><br><br>
+                    </div>
+
+                    @*/////Article Content//////*@
+                    <div class="col-md-12 memoriam-image">
+                        <div style="white-space: pre-line; font-family: 'Open Sans';">@Html.Raw(item.Notes)</div>
+                    </div>
+                </div>
+            }
+
+            @*@foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Location)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notes)
+                        </td>
+                        <td>
+
+                            <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1em; color:black; padding-left:5px; float:right;">
+                                <i class="glyphicon glyphicon-trash"></i>
+                                <span class="sr-only" style="text-align:right;">Delete</span>
+                            </a>
+                            <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1em; color:black; float:right;">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                                <span class="sr-only" style="text-align:right;">Edit</span>
+                            </a>
+                        </td>
+                    </tr>
+                }*@
+            @*</table>*@
+        }
+    </div>
+</div>

@@ -1,0 +1,168 @@
+﻿@model IEnumerable<HospiceWebPortal.Models.Home>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (!User.Identity.IsAuthenticated)
+{
+    Response.Redirect("~/Account/Login");
+}
+
+<div class="row">
+    @*/////SideBar//////*@
+    <div class="col-md-4">
+        @*/////Action Required//////*@
+        <div id="sbar-action" class="gray-content">
+            <h2 class="green-header">Action Required</h2>
+            <p>
+                <strong>RSVP to Hike For Hospice</strong><br>
+                <a href="#">Yes</a> | <a href="#">No</a> | <a href="#">Maybe</a><br><br>
+                <strong>RSVP to the 5 Car Draw</strong><br>
+                <a href="#">Yes</a> | <a href="#">No</a> | <a href="#">Maybe</a>
+            </p>
+        </div>
+        @*/////Events//////*@
+        <div id="sbar-events" class="gray-content">
+            <h2 class="green-header">Events</h2>
+            <p>
+                <b>January 25, 2015</b> Wavelength<br />
+                Discuss hospice niagara web portal.
+            </p>
+            <p>
+                <b>January 26, 2015</b> Timothy Blokzyl<br />
+                Discuss progress with Dave and Peter.
+            </p>
+        </div>
+        @*/////Sidebar Announcements//////*@
+        <div id="sbar-announcements" class="gray-content">
+
+            <h2 class="green-header">Announcements</h2>
+
+            <p style="text-align:left; padding: 0 15px 0 20px">
+                <strong>What Is Lorem Ipsum?</strong><br> Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br><br> <strong>Why Do We Use It?</strong><br>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <br><br> <strong>Where can I get some?</strong><br>
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum.
+            </p>
+
+        </div>
+        @*/////Common Resources//////*@
+        <div id="sbar-resources" class="gray-content">
+
+            <h2 class="green-header">Common Resources</h2>
+
+            <p class="common-resources">
+
+                <a href="#">Health and Safety</a><br>
+                <a href="#">Incident Report</a><br>
+                <a href="#">Mileage & Expense</a><br>
+                <a href="#">Volunteer Ticket Seller Information Sheet</a><br>
+
+            </p>
+        </div>
+    </div>
+    @*/////Main Content//////*@
+    <div class="col-md-8">
+        @*/////Welcome Article//////*@
+        <div class="gray-content">
+
+            <h2 class="green-header">Welcome</h2>
+
+            <p>
+                We would like to welcome our newest recruit! This is a web portal created by the students of Niagara College in the Computer Programmer Analyst Program.
+                These students have a vision of what they would like the future to hold, and hope that along with our organization they can make it happen!
+            </p>
+
+            <p>
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised
+                words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing
+                hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator
+                on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.
+                The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+            </p>
+
+        </div>
+        @*/////Introduction Article//////*@
+        <div class="gray-content">
+
+            <h2 class="green-header">Introduction</h2>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="img-responsive" src="http://pipsum.com/1024x769.jpg" alt="random-image"><img />
+                </div>
+
+                <div class="col-md-6">
+                    <p>
+                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero.
+                    </p>
+                </div>
+            </div>
+
+            <p>
+                Donec scelerisque iaculis erat id laoreet. Cras varius ex at augue blandit, eu vulputate felis ullamcorper. Aenean et risus a quam porta rutrum. Sed cursus tristique felis, et convallis erat semper vel. Vestibulum quis finibus nisi. Pellentesque quis sagittis odio, nec vestibulum enim. In nec urna ante. Sed varius pulvinar mauris, in faucibus risus commodo a. Interdum et malesuada fames ac ante ipsum primis in faucibus. In quam ipsum, condimentum ut varius quis, luctus eu arcu. Vivamus tempor, neque at rutrum efficitur, erat erat dignissim dolor, sit amet luctus nibh arcu sit amet erat. Etiam at nulla dictum, aliquet dui nec, finibus odio. Phasellus eu consectetur ex. Donec consequat vestibulum diam, sit amet vulputate elit rutrum vitae.
+            </p>
+
+            <p>
+                Mauris a feugiat massa. Fusce sagittis, neque eu sagittis tempus, massa tellus mollis ex, vel malesuada lectus lorem lobortis lorem. Aliquam tempus leo aliquam, pretium lorem nec, tempus dui. Vivamus sed posuere eros. Maecenas dapibus vestibulum mauris, nec sodales enim laoreet vitae. Nam ut dui congue libero euismod egestas vitae sed nibh. Sed id elit eu tellus tempus interdum. Vestibulum aliquet iaculis suscipit. Nam ex lacus, commodo eu hendrerit sed, consequat eget lacus. Ut sed efficitur augue. Morbi hendrerit est ex, consequat ultrices erat feugiat eu.
+            </p>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a ligula id mi vehicula aliquam. Suspendisse fringilla at erat non rhoncus. Donec eleifend augue non justo iaculis dictum. Vestibulum vestibulum urna leo, luctus ornare massa eleifend in. Proin feugiat purus et ullamcorper porttitor. Vivamus volutpat eros ultrices, efficitur purus ut, maximus erat. Cras varius finibus eros, mattis condimentum odio bibendum sed. Phasellus eu justo eu metus sodales placerat luctus sed tellus. Quisque tristique ex nec orci mattis, non vulputate mi luctus. Sed vestibulum risus justo, eget posuere ipsum commodo id. Morbi lobortis, ipsum vel egestas consequat, eros arcu bibendum nisi, eu sodales libero risus sit amet est. In urna ex, congue non mollis a, tincidunt sed ipsum. Pellentesque id orci est. Duis eu nulla iaculis, pellentesque magna id, dignissim ligula. Mauris a tellus ornare, blandit ipsum id, ullamcorper libero.
+            </p>
+        </div>
+    </div>
+</div>
+@*/////Create New Articles//////*@
+<div class="col-md-4"></div>
+<div class="col-md-8">
+    <p class="btn btn-default " style="text-decoration:none; margin: -10px 0 10px -5px; ">
+        @Html.ActionLink("New Article", "Create", new { @class = "btn btn-primary" })
+    </p>
+</div>
+
+@*/////Get Articles//////*@
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <div class="gray-content">
+                @*Article Title & Icons*@
+                <div class="green-header">
+
+                    <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1.65em; color:black; padding-left:5px; float:right;">
+                        <i class="glyphicon glyphicon-trash"></i>
+                        <span class="sr-only" style="text-align:right;">Delete</span>
+                    </a>
+                    <h2 style="display:inline;">@Html.DisplayFor(modelItem => item.Title)</h2>
+                    <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1.65em; color:black; float:right;">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                        <span class="sr-only" style="text-align:right;">Edit</span>
+                    </a>
+                </div>
+
+                @*Author Name*@
+                <div class="col-md-6" style="text-align:left; padding-top:10px;">
+                    <strong>
+                        Created By:
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </strong>
+                </div>
+
+                @*Date of Publication*@
+                <div class="col-md-6" style="text-align:right;padding-top:10px;">
+                    @Html.DisplayFor(modelItem => item.Created)
+                </div><br><br>
+
+                @*/////Article Content//////*@
+                <div class="col-md-12">
+                    <div style="white-space: pre-line">@Html.DisplayFor(modelItem => item.Content)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

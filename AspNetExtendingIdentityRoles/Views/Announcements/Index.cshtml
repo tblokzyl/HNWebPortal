@@ -1,0 +1,129 @@
+﻿@model IEnumerable<HospiceWebPortal.Models.Announcement>
+
+@{
+    ViewBag.Title = "Announcements";
+}
+<div class="row">
+    <div class="col-md-4">
+        <div class="gray-content">
+            <h2 class="green-header">Action Required</h2>
+            <p>
+                <strong>RSVP to Hike For Hospice</strong><br>
+                <a href="#">Yes</a> | <a href="#">No</a> | <a href="#">Maybe</a><br><br>
+                <strong>RSVP to the 5 Car Draw</strong><br>
+                <a href="#">Yes</a> | <a href="#">No</a> | <a href="#">Maybe</a>
+            </p>
+        </div>
+        <div class="gray-content">
+            <h2 class="green-header">Events</h2>
+            <p>
+                <b>January 25, 2015</b> Wavelength<br />
+                Discuss hospice niagara web portal.
+            </p>
+            <p>
+                <b>January 26, 2015</b> Timothy Blokzyl<br />
+                Discuss progress with Dave and Peter.
+            </p>
+        </div>
+        <div class="gray-content">
+            <h2 class="green-header">Announcements</h2>
+            <p style="text-align:left; padding: 0 15px 0 20px">
+                @{int i = 0;}
+                @foreach (var item in Model)
+                {
+                    <strong>@Html.DisplayFor(modelItem => item.Created)</strong><br />
+                    if (i == 2)
+                    {
+                        break;
+                    }
+                    i++;
+                }
+
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br><br> <strong>Why Do We Use It?</strong><br> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <br><br> <strong>Where can I get some?</strong><br> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+        </div>
+        <div class="gray-content">
+            <h2 class="green-header">Common Resources</h2>
+            <p>
+                <a href="#">Health and Safety</a><br>
+                <a href="#">Incident Report</a><br>
+                <a href="#">Mileage & Expense</a><br>
+                <a href="#">Volunteer Ticket Seller Information Sheet</a><br>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="gray-content">
+            <h2 class="green-header">Announcements</h2>
+            <img class="img-responsive" src="http://pipsum.com/1024x768.jpg" alt="random-image"><img />
+            <p>
+                Donec justo magna, fringilla quis magna ut, placerat tincidunt nisi. Nulla eu velit tortor. Nullam nunc velit, aliquet vitae laoreet nec, faucibus facilisis nisi. Fusce pharetra nec turpis mollis varius. Praesent sit amet imperdiet leo. Morbi mauris dui, laoreet et iaculis ut, congue vel eros. Suspendisse suscipit feugiat eros at dignissim. Suspendisse nec tempor dui. Nam eu libero posuere, euismod arcu ut, hendrerit lorem. Quisque ut ante sollicitudin, sodales dolor vel, molestie leo. Quisque dolor tellus, viverra ultrices laoreet nec, aliquam nec turpis. Etiam lacinia leo mauris, placerat ornare orci dignissim eget.
+            </p>
+            <p>
+                Mauris a feugiat massa. Fusce sagittis, neque eu sagittis tempus, massa tellus mollis ex, vel malesuada lectus lorem lobortis lorem. Aliquam tempus leo aliquam, pretium lorem nec, tempus dui. Vivamus sed posuere eros. Maecenas dapibus vestibulum mauris, nec sodales enim laoreet vitae. Nam ut dui congue libero euismod egestas vitae sed nibh. Sed id elit eu tellus tempus interdum. Vestibulum aliquet iaculis suscipit. Nam ex lacus, commodo eu hendrerit sed, consequat eget lacus. Ut sed efficitur augue. Morbi hendrerit est ex, consequat ultrices erat feugiat eu.
+            </p>
+        </div>
+        <div class="gray-content">
+            <img class="img-responsive" src="http://pipsum.com/1024x769.jpg" alt="random-image"><img />
+            <p>
+                Proin sodales congue rutrum. Suspendisse sodales, turpis vel ornare euismod, est elit ultricies lorem, a imperdiet velit tortor in dolor. Nunc sed scelerisque arcu. Fusce nec orci at urna tincidunt tristique nec nec lacus. Duis eu mattis erat, a elementum tortor. Pellentesque faucibus urna et sagittis lacinia. Aliquam erat volutpat. Nullam imperdiet odio erat, a laoreet ante condimentum ut. Proin sem massa, sodales euismod ultricies eget, pulvinar id magna. Nulla gravida congue ante, eget suscipit mauris venenatis at. Fusce laoreet nisl eget lacus dapibus, eu sagittis neque elementum. Donec lacinia ex et est aliquet, ac ultricies tortor auctor. In tortor nulla, ornare at imperdiet at, ullamcorper sed nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus vestibulum ut massa id sollicitudin.
+                <br><br>Nullam faucibus enim vitae leo fermentum, sed dapibus urna vulputate. Vestibulum eu elit facilisis, maximus leo id, porta nisi. Phasellus bibendum et augue cursus fermentum. Sed non ex mauris. Vivamus augue nunc, elementum sit amet hendrerit eu, fringilla quis metus. Nullam sollicitudin convallis velit nec eleifend. Sed vestibulum, erat eu posuere dapibus, mauris risus facilisis sapien, quis placerat dui lacus at ex. Integer sed tortor accumsan mauris volutpat pellentesque. Proin sit amet pretium ex. Duis mollis orci vitae ipsum consectetur tincidunt. Maecenas nec tellus libero. Mauris ut turpis id nulla sollicitudin interdum vitae et erat. Fusce id sollicitudin elit. Sed posuere sem ut purus dictum, ac condimentum sem tempus.<br><br>
+                Nullam malesuada ultrices eros venenatis gravida. Aliquam erat volutpat. Morbi mattis tortor et tincidunt sollicitudin. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur luctus eu lectus in dapibus. Nulla id venenatis mi. Etiam iaculis sagittis felis, sit amet dapibus metus malesuada vel.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+@*/////Create New Articles//////*@
+<div class="col-md-4"></div>
+<div class="col-md-8">
+    <p class="btn btn-default " style="text-decoration:none; margin: -10px 0 10px -5px; ">
+        @Html.ActionLink("New Article", "Create", new { @class = "btn btn-primary" })
+    </p>
+</div>
+
+@*/////Get Articles//////*@
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <div class="gray-content">
+                @*Article Title & Icons*@
+                <div class="green-header">
+
+                    <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1.65em; color:black; padding-left:5px; float:right;">
+                        <i class="glyphicon glyphicon-trash"></i>
+                        <span class="sr-only" style="text-align:right;">Delete</span>
+                    </a>
+                    <h2 style="display:inline;">@Html.DisplayFor(modelItem => item.Title)</h2>
+                    <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1.65em; color:black; float:right;">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                        <span class="sr-only" style="text-align:right;">Edit</span>
+                    </a>
+                </div>
+
+                @*Author Name*@
+                <div class="col-md-6" style="text-align:left; padding-top:10px;">
+                    <strong>
+                        Created By:
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </strong>
+                </div>
+
+                @*Date of Publication*@
+                <div class="col-md-6" style="text-align:right;padding-top:10px;">
+                    @Html.DisplayFor(modelItem => item.Created)
+                </div><br><br>
+
+                @*/////Article Content//////*@
+                <div class="col-md-12">
+                    <div style="white-space: pre-line">@Html.DisplayFor(modelItem => item.Content)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
