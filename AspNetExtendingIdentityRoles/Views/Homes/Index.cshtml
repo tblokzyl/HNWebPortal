@@ -79,52 +79,52 @@
 </div>
 @*/////Create New Articles//////*@
 <div class="col-md-4"></div>
-<div class="col-md-8">
-    <p class="btn btn-default " style="text-decoration:none; margin: -10px 0 10px -5px; ">
-        @Html.ActionLink("New Article", "Create", new { @class = "btn btn-primary" })
-    </p>
-</div>
+    <div class="col-md-8">
+        <p class="btn btn-default " style="text-decoration:none; margin: -10px 0 10px -5px; ">
+            @Html.ActionLink("New Article", "Create", new { @class = "btn btn-primary" })
+        </p>
+    </div>
 
-@*/////Get Articles//////*@
-@foreach (var item in Model)
-{
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-8">
-            <div class="gray-content">
-                @*Article Title & Icons*@
-                <div class="green-header">
+    @*/////Get Articles//////*@
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <div class="gray-content">
+                    @*Article Title & Icons*@
+                    <div class="green-header">
 
-                    <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1.65em; color:black; padding-left:5px; float:right;">
-                        <i class="glyphicon glyphicon-trash"></i>
-                        <span class="sr-only" style="text-align:right;">Delete</span>
-                    </a>
-                    <h2 style="display:inline;">@Html.DisplayFor(modelItem => item.Title)</h2>
-                    <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1.65em; color:black; float:right;">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                        <span class="sr-only" style="text-align:right;">Edit</span>
-                    </a>
-                </div>
+                        <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1.65em; color:black; padding-left:5px; float:right;">
+                            <i class="glyphicon glyphicon-trash"></i>
+                            <span class="sr-only" style="text-align:right;">Delete</span>
+                        </a>
+                        <h2 style="display:inline;">@Html.DisplayFor(modelItem => item.Title)</h2>
+                        <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1.65em; color:black; float:right;">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            <span class="sr-only" style="text-align:right;">Edit</span>
+                        </a>
+                    </div>
 
-                @*Author Name*@
-                <div class="col-md-6" style="text-align:left; padding-top:10px;">
-                    <strong>
-                        Created By:
-                        @Html.DisplayFor(modelItem => item.Author)
-                    </strong>
-                </div>
+                    @*Author Name*@
+                    <div class="col-md-6" style="text-align:left; padding-top:10px;">
+                        <strong>
+                            Created By:
+                            @Html.DisplayFor(modelItem => item.Author)
+                        </strong>
+                    </div>
 
-                @*Date of Publication*@
-                <div class="col-md-6" style="text-align:right;padding-top:10px;">
-                    @Html.DisplayFor(modelItem => item.Created)
-                </div><br><br>
+                    @*Date of Publication*@
+                    <div class="col-md-6" style="text-align:right;padding-top:10px;">
+                        @Html.DisplayFor(modelItem => item.Created)
+                    </div><br><br>
 
-                @*/////Article Content//////*@
-                <div class="col-md-12">
-                    <div style="white-space: pre-line">@Html.DisplayFor(modelItem => item.Content)</div>
+                    @*/////Article Content//////*@
+                    <div class="col-md-12">
+                        <div style="white-space: pre-line">@Html.DisplayFor(modelItem => item.Content)</div>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 }
 

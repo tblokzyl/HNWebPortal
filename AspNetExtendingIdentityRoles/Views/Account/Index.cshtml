@@ -4,63 +4,118 @@
     ViewBag.Title = "Index";
 }
 
-<div class="gray-content" style="margin-top:20px;">
-    <h2 class="green-header">Manage Users</h2>
-    <div class="row">
-        <div class="col-md-12">
-            <div style="margin:-8px 0 0px 0px; line-height:40px;">
-                @Html.ActionLink("Create New User", "Register")
+<div class="row">
+    @*/////SideBar//////*@
+    <div class="col-md-4">
+        @*/////Action Required//////*@
+        <div class="gray-content">
+            <h2 class="green-header">Action Required</h2>
+            <p>
+                <strong>RSVP to Hike For Hospice</strong><br>
+                <a href="#">Yes</a> | <a href="#">No</a> | <a href="#">Maybe</a><br><br>
+                <strong>RSVP to the 5 Car Draw</strong><br>
+                <a href="#">Yes</a> | <a href="#">No</a> | <a href="#">Maybe</a>
+            </p>
+        </div>
+        @*/////Events//////*@
+        <div id="sbar-events" class="gray-content">
+            <h2 class="green-header">Events</h2>
+            <p>
+                <b>January 25, 2015</b> Wavelength<br />
+                Discuss hospice niagara web portal.
+            </p>
+            <p>
+                <b>January 26, 2015</b> Timothy Blokzyl<br />
+                Discuss progress with Dave and Peter.
+            </p>
+        </div>
+        @*/////Sidebar Announcements//////*@
+        <div class="gray-content">
+
+            <h2 class="green-header">Announcements</h2>
+
+            <p style="text-align:left; padding: 0 15px 0 20px">
+                <strong>What Is Lorem Ipsum?</strong><br> Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br><br> <strong>Why Do We Use It?</strong><br>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <br><br> <strong>Where can I get some?</strong><br>
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum.
+            </p>
+
+        </div>
+        @*/////Common Resources//////*@
+        <div class="gray-content">
+
+            <h2 class="green-header">Common Resources</h2>
+
+            <p class="common-resources">
+
+                <a href="#">Health and Safety</a><br>
+                <a href="#">Incident Report</a><br>
+                <a href="#">Mileage & Expense</a><br>
+                <a href="#">Volunteer Ticket Seller Information Sheet</a><br>
+
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="gray-content">
+            <h2 class="green-header">Manage Users</h2>
+            <div style="margin:-8px 20px 0px 20px; line-height:40px;">
+                <div style="margin:-8px 0 0px 0px; line-height:40px;">
+                    @Html.ActionLink("Create New User", "Register")
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LastName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FirstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("Delete", new { id = item.UserName })" style="font-size:1em; color:black; padding-left:5px; float:right;">
+                                        <i class="glyphicon glyphicon-trash"></i>
+                                        <span class="sr-only" style="text-align:right;">Delete</span>
+                                    </a>
+                                    <a href="@Url.Action("UserRoles", new { id = item.UserName })" style="font-size:1em; color:black; padding-left:5px; float:right;">
+                                        <i class="glyphicon glyphicon-th-list"></i>
+                                        <span class="sr-only" style="text-align:right;">Delete</span>
+                                    </a>
+                                    <a href="@Url.Action("Edit", new { id = item.UserName })" style="font-size:1em; color:black; float:right;">
+                                        <i class="glyphicon glyphicon-pencil"></i>
+                                        <span class="sr-only" style="text-align:right;">Edit</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
             </div>
-            <table class="table">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.UserName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FirstName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.LastName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Email)
-                    </th>
-                    <th></th>
-                </tr>
-
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.UserName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FirstName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LastName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Email)
-                        </td>
-                        <td>
-                            <a href="@Url.Action("Delete", new { id = item.UserName })" style="font-size:1em; color:black; padding-left:5px; float:right;">
-                                <i class="glyphicon glyphicon-trash"></i>
-                                <span class="sr-only" style="text-align:right;">Delete</span>
-                            </a>
-                            <a href="@Url.Action("UserRoles", new { id = item.UserName })" style="font-size:1em; color:black; padding-left:5px; float:right;">
-                                <i class="glyphicon glyphicon-th-list"></i>
-                                <span class="sr-only" style="text-align:right;">Delete</span>
-                            </a>
-                            <a href="@Url.Action("Edit", new { id = item.UserName })" style="font-size:1em; color:black; float:right;">
-                                <i class="glyphicon glyphicon-pencil"></i>
-                                <span class="sr-only" style="text-align:right;">Edit</span>
-                            </a>
-                        </td>
-                    </tr>
-                }
-
-            </table>
         </div>
     </div>
 </div>

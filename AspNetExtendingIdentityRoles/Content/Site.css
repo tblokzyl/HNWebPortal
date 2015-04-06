@@ -147,11 +147,24 @@ footer {
     margin-bottom:10px;
 }
 
+h2 a.admin:hover
+{
+    color: black;
+    background-color: black;
+    text-decoration:none;
+}
+
 @media (max-width: 967px) {
     #sbar-announcements, #sbar-resources, #sbar-events, #sbar-action {
         display:none !important;
     }
 }
+@media (min-width: 768px) and (max-width: 1200px) {
+   .collapse {
+       display: none !important;
+   }
+}
+
 @media (min-width: 768px) and (max-width: 1200px) {
     .navbar-collapse.collapse {
         display: none !important;
