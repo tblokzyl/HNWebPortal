@@ -40,7 +40,7 @@ namespace HNWebPortal.Migrations
                 {
                     Author = "Andrew Empacher",
                     Created = DateTime.Parse("2015-04-05"),
-                    Title = "Call for Nominations: Positions on Hospice Niagara’s Board of Directors",
+                    Title = "Call for Nominations",
                     Content = "Three positions on Hospice Niagara’s Boardof Directors will become vacant as of June 23rd. The Board is seeking individuals who possess specific skills and experience in:"
                     +"\r\n•Business Law;"
                     +"\r\n•Healthcare and Patient Care;"
@@ -286,7 +286,7 @@ namespace HNWebPortal.Migrations
                 new Announcement
                 {
                     Created = DateTime.Parse("2015-03-01"),
-                    Author = "Jim Horsthuis, Community Programs Manager",
+                    Author = "Jim Horsthuis",
                     Title = "Announcing Niagara - South Day Hospice",
                     Content = "\r\nWith the “ringing of the bells,” Niagara – South Day Hospice was officially launched at Knox Presbyterian Church in Welland. The development of this program was truly a team effort. It started with community leaders recognizing the need for Day Hospice in the Southern region of Niagara. Together, Hospice Niagara worked with community leaders to plan and implement Niagara – South Day Hospice. Funding has been secured for 2015 and we are now seeking ongoing funding to carry us forward in future years. If you are interested in supporting Niagara-South Day Hospice, please call 905-984-8766."
                     +"\r\n\r\nNiagara – South Day Hospice provides an opportunity for men and women who are living with a life-limiting, progressive illness to enjoy a day of relaxation and caring companionship in a safe, comfortable setting. It offers a place for tranquility, social sharing, a gourmet meal, quality entertainment, complementary therapies and aesthetic services. It is a day to pursue quality of life. Over the past several months, approximately 6-10 clients have enjoyed Niagara – South Day Hospice. All of our clients are eager to see this program expand from a monthly to a weekly endeavor."
@@ -298,7 +298,7 @@ namespace HNWebPortal.Migrations
                 {
                     Created = DateTime.Parse("2015-03-01"),
                     Author = "Unknown",
-                    Title = "Dancin’ for Miracles raises $3,000 for Hospice Niagara",
+                    Title = "Dancin’ for Miracles raises $3,000",
                     Content = "Thank you to Ella Turcotte and Valerie Keller (pictured here with Kelly Vlaar), for hosting “Dancin’ for Miracles” in support of Hospice Niagara. It was a fabulous line-dancing event held in Wasaga Beach at which $3,000 was raised in support of our programs and services."
                     +"\r\n\r\nThank you Valerie and Ella and everyone who participated in this fun event."
                 }

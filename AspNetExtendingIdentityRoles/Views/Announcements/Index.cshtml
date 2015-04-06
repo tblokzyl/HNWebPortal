@@ -17,7 +17,7 @@
         <div id="sbar-events" class="gray-content">
             <h2 class="green-header">Events</h2>
             <p>
-                <b>June 26th, 2015</b> Swing Hard to Live Strong for Hospice Niagara<br />
+                <b>June 26th, 2015</b> Swing Hard to Live Strong<br />
                 Round of Golf with Cart, Lunch, Dinner, Hole Contests, Silent Auction and Much More!
             </p>
             <p>
@@ -28,51 +28,47 @@
         <div id="sbar-announcements" class="gray-content">
             <h2 class="green-header">Announcements</h2>
             <p style="text-align:left; padding: 0 15px 0 20px">
+                
                 @{int i = 0;}
                 @foreach (var item in Model)
                 {
-                    <strong>@Html.DisplayFor(modelItem => item.Created)</strong><br />
-                    if (i == 2)
+                    if (i > 0)
+                    {
+                          <br><br>
+                    }
+                    <strong>@Html.DisplayFor(modelItem => item.Title)</strong><br />
+                    @item.Content.Substring(0, Math.Min(item.Content.Length, 90))<a href="#"><br>see more...</a>
+                    if (i > 2)
                     {
                         break;
                     }
                     i++;
                 }
-
-                <strong>Announcing Niagara - South Day Hospice</strong><br> With the “ringing of the bells,” Niagara – South Day Hospice was officially launched at Knox Presbyterian Church in Welland. The development of this program was truly a team effort. It started with community leaders recognizing the need for Day Hospice in the Southern region of Niagara. Together...
-
             </p>
-            <p style="text-align:left; padding: 0 15px 0 20px">
-                <strong>Call for Nominations: Positions on Hospice Niagara’s Board of Directors</strong><br>Three positions on Hospice Niagara’s Boardof Directors will become vacant as of June 23rd. The Board is seeking individuals who possess specific skills and experience in: •Business Law; •Healthcare and Patient Care;...
 </div>
         <div id="sbar-resources" class="gray-content">
             <h2 class="green-header">Common Resources</h2>
             <p>
-                <a href="#">Health and Safety</a><br>
-                <a href="#">Incident Report</a><br>
-                <a href="#">Mileage & Expense</a><br>
-                <a href="#">Volunteer Ticket Seller Information Sheet</a><br>
+                @foreach (var item in Model)
+                {
+                      <a href="#">@Html.DisplayFor(modelItem => item.Resources)</a><br>
+                }
             </p>
         </div>
     </div>
-</div>
+    <div class="col-md-8">
+        <div class="gray-content">
+            <div class="green-header" style="margin-top:20px; font-size:1.8em;">Announcements<b style="margin-top:-21px;" class="pull-right">@Html.ActionLink("+", "Create", null, new { @style = "color:black; margin-bottom:10px; background-color:#80a23e; font-size: 2em; text-decoration:none; background-color:rgba(255,0,0,0);" })</b></div>
 
-
-@*/////Create New Articles//////*@
-<div class="col-md-4"></div>
-<div class="col-md-8">
-    <p class="btn btn-default " style="text-decoration:none; margin: -10px 0 10px -5px; ">
-        @Html.ActionLink("New Article", "Create", new { @class = "btn btn-primary" })
-    </p>
-</div>
-
-@*/////Get Articles//////*@
-@foreach (var item in Model)
-{
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-8">
+            <p style="margin-top: 10px;">
+                Hospice Niagara provides services to individuals and families in St. Catharines, Niagara Falls, Pelham, Thorold, Wainfleet, Welland, Port Colborne, Fort Erie and Lincoln.  We also serve Niagara-on-the-Lake, in co-operation with the Niagara-on-the-Lake Community Palliative Care Service, and West Lincoln and Grimsby, in co-operation with McNally House Hospice and the Rose Cottage Visiting Volunteers.
+            </p>
+        </div>
+        @*/////Get Articles//////*@
+        @foreach (var item in Model)
+        {
             <div class="gray-content">
+
                 @*Article Title & Icons*@
                 <div class="green-header">
 
@@ -105,8 +101,13 @@
                     <div style="white-space: pre-line">@Html.Raw(item.Content)</div>
                 </div>
             </div>
-        </div>
+        }
     </div>
-}
+</div>
+
+
+@*/////Create New Articles//////*@
+
+
 
 

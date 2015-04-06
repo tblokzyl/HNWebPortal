@@ -7,13 +7,13 @@ namespace HNWebPortal.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class remodel : IMigrationMetadata
+    public sealed partial class initial_create : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(remodel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial_create));
         
         string IMigrationMetadata.Id
         {
-            get { return "201504040527456_remodel"; }
+            get { return "201504061059199_initial_create"; }
         }
         
         string IMigrationMetadata.Source

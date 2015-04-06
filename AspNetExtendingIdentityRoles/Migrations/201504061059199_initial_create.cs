@@ -3,7 +3,7 @@ namespace HNWebPortal.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class remodel : DbMigration
+    public partial class initial_create : DbMigration
     {
         public override void Up()
         {
@@ -40,34 +40,6 @@ namespace HNWebPortal.Migrations
                 .Index(t => t.Schedule_ID);
             
             CreateTable(
-                "dbo.Resources",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        Description = c.String(nullable: false, maxLength: 100),
-                        FileName = c.String(nullable: false, maxLength: 100),
-                        CreatedOn = c.DateTime(nullable: false),
-                        FileContent = c.Binary(nullable: false),
-                        MimeType = c.String(nullable: false, maxLength: 256),
-                        Announcement_ID = c.Int(),
-                        Contact_ID = c.Int(),
-                        Home_ID = c.Int(),
-                        Meeting_ID = c.Int(),
-                        Schedule_ID = c.Int(),
-                    })
-                .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Announcements", t => t.Announcement_ID)
-                .ForeignKey("dbo.Contacts", t => t.Contact_ID)
-                .ForeignKey("dbo.Homes", t => t.Home_ID)
-                .ForeignKey("dbo.Meetings", t => t.Meeting_ID)
-                .ForeignKey("dbo.Schedules", t => t.Schedule_ID)
-                .Index(t => t.Announcement_ID)
-                .Index(t => t.Contact_ID)
-                .Index(t => t.Home_ID)
-                .Index(t => t.Meeting_ID)
-                .Index(t => t.Schedule_ID);
-            
-            CreateTable(
                 "dbo.Contacts",
                 c => new
                     {
@@ -79,6 +51,31 @@ namespace HNWebPortal.Migrations
                         EXT = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "dbo.Resources",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Description = c.String(nullable: false, maxLength: 100),
+                        FileName = c.String(nullable: false, maxLength: 100),
+                        CreatedOn = c.DateTime(nullable: false),
+                        FileContent = c.Binary(nullable: false),
+                        MimeType = c.String(nullable: false, maxLength: 256),
+                        Contact_ID = c.Int(),
+                        Home_ID = c.Int(),
+                        Meeting_ID = c.Int(),
+                        Schedule_ID = c.Int(),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.Contacts", t => t.Contact_ID)
+                .ForeignKey("dbo.Homes", t => t.Home_ID)
+                .ForeignKey("dbo.Meetings", t => t.Meeting_ID)
+                .ForeignKey("dbo.Schedules", t => t.Schedule_ID)
+                .Index(t => t.Contact_ID)
+                .Index(t => t.Home_ID)
+                .Index(t => t.Meeting_ID)
+                .Index(t => t.Schedule_ID);
             
             CreateTable(
                 "dbo.DeathNotifications",
@@ -119,6 +116,17 @@ namespace HNWebPortal.Migrations
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false),
+                        Description = c.String(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Schedules",
                 c => new
                     {
@@ -126,12 +134,67 @@ namespace HNWebPortal.Migrations
                     })
                 .PrimaryKey(t => t.ID);
             
-            AlterColumn("dbo.AspNetRoles", "Name", c => c.String(nullable: false));
-            AlterColumn("dbo.AspNetUsers", "UserName", c => c.String(nullable: false));
+            CreateTable(
+                "dbo.AspNetUsers",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        UserName = c.String(nullable: false),
+                        PasswordHash = c.String(),
+                        SecurityStamp = c.String(),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                        Email = c.String(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.AspNetUserClaims",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ClaimType = c.String(),
+                        ClaimValue = c.String(),
+                        User_Id = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.User_Id, cascadeDelete: true)
+                .Index(t => t.User_Id);
+            
+            CreateTable(
+                "dbo.AspNetUserLogins",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        LoginProvider = c.String(nullable: false, maxLength: 128),
+                        ProviderKey = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.LoginProvider, t.ProviderKey })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.AspNetUserRoles",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.RoleId);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.AspNetUserClaims", "User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Resources", "Schedule_ID", "dbo.Schedules");
             DropForeignKey("dbo.Announcements", "Schedule_ID", "dbo.Schedules");
             DropForeignKey("dbo.Resources", "Meeting_ID", "dbo.Meetings");
@@ -140,24 +203,29 @@ namespace HNWebPortal.Migrations
             DropForeignKey("dbo.Announcements", "Home_ID", "dbo.Homes");
             DropForeignKey("dbo.Resources", "Contact_ID", "dbo.Contacts");
             DropForeignKey("dbo.Announcements", "Contact_ID", "dbo.Contacts");
-            DropForeignKey("dbo.Resources", "Announcement_ID", "dbo.Announcements");
+            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserClaims", new[] { "User_Id" });
             DropIndex("dbo.Resources", new[] { "Schedule_ID" });
             DropIndex("dbo.Resources", new[] { "Meeting_ID" });
             DropIndex("dbo.Resources", new[] { "Home_ID" });
             DropIndex("dbo.Resources", new[] { "Contact_ID" });
-            DropIndex("dbo.Resources", new[] { "Announcement_ID" });
             DropIndex("dbo.Announcements", new[] { "Schedule_ID" });
             DropIndex("dbo.Announcements", new[] { "Meeting_ID" });
             DropIndex("dbo.Announcements", new[] { "Home_ID" });
             DropIndex("dbo.Announcements", new[] { "Contact_ID" });
-            AlterColumn("dbo.AspNetUsers", "UserName", c => c.String());
-            AlterColumn("dbo.AspNetRoles", "Name", c => c.String());
+            DropTable("dbo.AspNetUserRoles");
+            DropTable("dbo.AspNetUserLogins");
+            DropTable("dbo.AspNetUserClaims");
+            DropTable("dbo.AspNetUsers");
             DropTable("dbo.Schedules");
+            DropTable("dbo.AspNetRoles");
             DropTable("dbo.Meetings");
             DropTable("dbo.Homes");
             DropTable("dbo.DeathNotifications");
-            DropTable("dbo.Contacts");
             DropTable("dbo.Resources");
+            DropTable("dbo.Contacts");
             DropTable("dbo.Announcements");
             DropTable("dbo.Admins");
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,11 @@ namespace HospiceWebPortal.Models
     public class Announcement
     {
         public int ID { get; set; }
+
+        //public Announcement()
+        //{
+        //    this.Resources = new HashSet<Resource>();
+        //}
 
         [Display(Name = "Title")]
         [StringLength(100, ErrorMessage = "Title cannot be longer than 100 characters.")]
@@ -28,6 +34,6 @@ namespace HospiceWebPortal.Models
         [StringLength(100, ErrorMessage = "Position cannot be longer than 100 characters.")]
         public string Author { get; set; }
 
-        public virtual ICollection<Resource> Resources { get; set; }
+        //public virtual ICollection<Resource> Resources { get; set; }
     }
 }
