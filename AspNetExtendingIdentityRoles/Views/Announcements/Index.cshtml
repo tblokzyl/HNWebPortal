@@ -49,16 +49,16 @@
         <div id="sbar-resources" class="gray-content">
             <h2 class="green-header">Common Resources</h2>
             <p>
-                @foreach (var item in Model)
-                {
-                      <a href="#">@Html.DisplayFor(modelItem => item.Resources)</a><br>
-                }
+                <a href="#">Health and Safety</a><br>
+                <a href="#">Incident Report</a><br>
+                <a href="#">Mileage & Expense</a><br>
+                <a href="#">Volunteer Ticket Seller Information Sheet</a><br>
             </p>
         </div>
     </div>
     <div class="col-md-8">
         <div class="gray-content">
-            <div class="green-header" style="margin-top:20px; font-size:1.8em;">Announcements<b style="margin-top:-21px;" class="pull-right">@Html.ActionLink("+", "Create", null, new { @style = "color:black; margin-bottom:10px; background-color:#80a23e; font-size: 2em; text-decoration:none; background-color:rgba(255,0,0,0);" })</b></div>
+            <div class="green-header" style="margin-top:20px; font-size:1.8em;">Announcements @if(User.IsInRole("Admin")){<b style="margin-top:-21px;" class="pull-right">@Html.ActionLink("+", "Create", null, new { @style = "color:black; margin-bottom:10px; background-color:#80a23e; font-size: 2em; text-decoration:none; background-color:rgba(255,0,0,0);" })</b>}</div>
 
             <p style="margin-top: 10px;">
                 Hospice Niagara provides services to individuals and families in St. Catharines, Niagara Falls, Pelham, Thorold, Wainfleet, Welland, Port Colborne, Fort Erie and Lincoln.  We also serve Niagara-on-the-Lake, in co-operation with the Niagara-on-the-Lake Community Palliative Care Service, and West Lincoln and Grimsby, in co-operation with McNally House Hospice and the Rose Cottage Visiting Volunteers.
@@ -72,15 +72,22 @@
                 @*Article Title & Icons*@
                 <div class="green-header">
 
-                    <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1.65em; color:black; padding-left:5px; float:right;">
-                        <i class="glyphicon glyphicon-trash"></i>
-                        <span class="sr-only" style="text-align:right;">Delete</span>
-                    </a>
+                    @if(User.IsInRole("Admin"))
+                    {
+                        <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1.65em; color:black; padding-left:5px; float:right;">
+                            <i class="glyphicon glyphicon-trash"></i>
+                            <span class="sr-only" style="text-align:right;">Delete</span>
+                        </a>
+                    }
                     <h2 style="display:inline;">@Html.DisplayFor(modelItem => item.Title)</h2>
-                    <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1.65em; color:black; float:right;">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                        <span class="sr-only" style="text-align:right;">Edit</span>
-                    </a>
+                    
+                    @if(User.IsInRole("Admin"))
+                    {
+                        <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1.65em; color:black; float:right;">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            <span class="sr-only" style="text-align:right;">Edit</span>
+                        </a>
+                    }
                 </div>
 
                 @*Author Name*@

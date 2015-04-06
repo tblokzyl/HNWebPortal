@@ -367,13 +367,13 @@ namespace HNWebPortal.Migrations
             bool success = false;
 
             var idManager = new IdentityManager();
-            success = idManager.CreateRole("Admin", "Global Access");
+            success = idManager.CreateRole("Admin", "Administrator (Global Access)");
             if (!success == true) return success;
 
-            success = idManager.CreateRole("CanEdit", "Edit existing records");
+            success = idManager.CreateRole("Staff", "paid Employees");
             if (!success == true) return success;
 
-            success = idManager.CreateRole("User", "Restricted to business domain activity");
+            success = idManager.CreateRole("User", "Limited User Access");
             if (!success) return success;
 
             success = idManager.CreateRole("Staff-Community", "Unknown");
@@ -478,7 +478,7 @@ namespace HNWebPortal.Migrations
                 Email = "peteyprogrammy@gmail.com"
             };
 
-            var newUser6= new ApplicationUser()
+            var newUser6 = new ApplicationUser()
             {
                 UserName = "awrend",
                 FirstName = "Andrew the",
@@ -490,6 +490,24 @@ namespace HNWebPortal.Migrations
             // be valid under the password rules for the application, 
             // or the process will abort:
             success = idManager.CreateUser(newUser, "Password1");
+            if (!success) return success;
+
+            success = idManager.CreateUser(newUser1, "Password2");
+            if (!success) return success;
+
+            success = idManager.CreateUser(newUser2, "Password3");
+            if (!success) return success;
+
+            success = idManager.CreateUser(newUser3, "Password1");
+            if (!success) return success;
+
+            success = idManager.CreateUser(newUser4, "Password1");
+            if (!success) return success;
+
+            success = idManager.CreateUser(newUser5, "Password1");
+            if (!success) return success;
+
+            success = idManager.CreateUser(newUser6, "Password1");
             if (!success) return success;
 
             success = idManager.AddUserToRole(newUser.Id, "Admin");
@@ -511,9 +529,6 @@ namespace HNWebPortal.Migrations
             if (!success) return success;
 
             success = idManager.AddUserToRole(newUser4.Id, "Day Hospice");
-            if (!success) return success;
-
-            success = idManager.AddUserToRole(newUser5.Id, "Welcome Desk");
             if (!success) return success;
 
             success = idManager.AddUserToRole(newUser5.Id, "Welcome Desk");

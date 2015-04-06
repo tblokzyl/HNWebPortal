@@ -97,9 +97,12 @@
 
             else
             {
+                if (User.IsInRole("Admin, Volunteer"))
+                {
                 <div style="margin:20px 0 0px 18px; line-height:40px;">
                     @Html.ActionLink("Create New Contact", "Create")
                 </div>
+                }
 
                 <div class="contact-content" style="margin: 0 10px 0 10px;">
                     <table class="table">
@@ -113,13 +116,16 @@
                             <th>
                                 @Html.ActionLink("Position", "Index", new { sortOrder = ViewBag.PositionSortParm })
                             </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Phone)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.EXT)
-                            </th>
+                            @if (User.IsInRole("Admin, Volunteer"))
+                            {
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Phone)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EXT)
+                                </th>
                             <th></th>
+                            }
                         </tr>
 
                         @foreach (var item in Model)
@@ -151,14 +157,18 @@
 
 
                                 </td>
+                                @if (User.IsInRole("Admin, Volunteer"))
+                                {
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Phone)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.EXT)
                                 </td>
+                                }
                                 <td>
-
+                                    @if (User.IsInRole("Admin, Volunteer"))
+                                    {
                                     <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1em; color:black; padding-left:5px; float:right;">
                                         <i class="glyphicon glyphicon-trash"></i>
                                         <span class="sr-only" style="text-align:right;">Delete</span>
@@ -167,6 +177,7 @@
                                         <i class="glyphicon glyphicon-pencil"></i>
                                         <span class="sr-only" style="text-align:right;">Edit</span>
                                     </a>
+                                    }
 
                                     @*////This will add a details view if neccessary////*@
                                     @*@Html.ActionLink("Details", "Details", new { id = item.ID }) |*@

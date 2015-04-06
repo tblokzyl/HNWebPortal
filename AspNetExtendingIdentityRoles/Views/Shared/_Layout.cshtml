@@ -45,7 +45,13 @@
                         <li>@Html.ActionLink("Schedules", "Index", "Schedules")</li>
                         <li>@Html.ActionLink("Contacts", "Index", "Contacts")</li>
                         <li>@Html.ActionLink("Resources", "Index", "Resources")</li>
-                        <li>@Html.ActionLink("In Memoriam", "Index", "DeathNotifications")</li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (!User.IsInRole("Volunteer"))
+                            {
+                                <li>@Html.ActionLink("In Memoriam", "Index", "DeathNotifications")</li>
+                            }
+                        }
                         @if (User.Identity.IsAuthenticated)
                         {
                             if (User.IsInRole("Admin"))

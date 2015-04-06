@@ -63,24 +63,38 @@
     </div>
 
     <div class="col-md-8">
-
+        @if(User.IsInRole("Admin"))
+                            {
         <p class="btn btn-default " style="text-decoration:none; margin: 20px 0 10px 0px; ">
             @Html.ActionLink("Create New Meeting", "Create")
         </p>
+        }
+        
+       @if(User.Identity.IsAuthenticated)
+        {
+            <p style="margin: 20px 0 10px 0px;"> 
+                </p>
+        }
+
         @foreach (var item in Model)
         {
             <div class="gray-content">
                 <div class="green-header">
-
+                    @if(User.IsInRole("Admin"))
+                                        {
                     <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1.65em; color:black; padding-left:5px; float:right;">
                         <i class="glyphicon glyphicon-trash"></i>
                         <span class="sr-only" style="text-align:right;">Delete</span>
                     </a>
+                    }
                     <h2 style="display:inline;">@Html.DisplayFor(modelItem => item.Name)</h2>
+@if(User.IsInRole("Admin"))
+                    {
                     <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1.65em; color:black; float:right;">
                         <i class="glyphicon glyphicon-pencil"></i>
                         <span class="sr-only" style="text-align:right;">Edit</span>
                     </a>
+}
                 </div>
 
                 @*Meeting Date*@

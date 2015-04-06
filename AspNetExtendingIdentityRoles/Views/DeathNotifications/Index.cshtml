@@ -119,11 +119,14 @@
                     </tr>*@
 
             @*/////Get Articles//////*@
+            if (User.IsInRole("Admin"))
+            { 
             <div class="col-md-12">
                 <p class="btn btn-default " style="text-decoration:none; margin: 10px 0 10px -15px; ">
                     @Html.ActionLink("Create Death Notification", "Create", new { @class = "btn btn-primary" })
                 </p>
             </div>
+            }
 
             foreach (var item in Model)
             {
@@ -131,15 +134,21 @@
                     @*Article Title & Icons*@
                     <div class="green-header">
 
+                        @if (User.IsInRole("Admin"))
+                        { 
                         <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1.65em; color:black; padding-left:5px; float:right;">
                             <i class="glyphicon glyphicon-trash"></i>
                             <span class="sr-only" style="text-align:right;">Delete</span>
                         </a>
+                        }
                         <h2 style="display:inline;">@Html.DisplayFor(modelItem => item.Name)</h2>
-                        <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1.65em; color:black; float:right;">
-                            <i class="glyphicon glyphicon-pencil"></i>
-                            <span class="sr-only" style="text-align:right;">Edit</span>
-                        </a>
+                        @if (User.IsInRole("Admin"))
+                        { 
+                            <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1.65em; color:black; float:right;">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                                <span class="sr-only" style="text-align:right;">Edit</span>
+                            </a>
+                        }
                     </div>
 
                     @*Author Name*@

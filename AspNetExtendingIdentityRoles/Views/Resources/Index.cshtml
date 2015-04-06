@@ -71,7 +71,7 @@
 
             @*//Kevin: To code inside of main container start here///*@
 
-            @if (Model.Count() == 1000)
+            @if (Model.Count() == 0)
             {
                 <div class="col-md-12" style="padding-top:20px; line-height:30px">
                     <strong style="padding-bottom:-20px;">No results found for @ViewData["Search"] </strong>
@@ -82,7 +82,9 @@
             else
             {
 
-                <div style="margin: 0 10px 0 10px;">
+                <div style="margin: 0 10px -30px 10px;">
+                    @if(User.IsInRole("Admin"))
+                    {
                     <p>
                         @using (Html.BeginForm("", "Resources", FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
@@ -90,6 +92,7 @@
                             <input style="display:inline;" type="text" placeholder="File Description" class="form-control" name="fileDescription" /><input class="btn btn-default" type="submit" name="Submit" id="Submit" value="Upload" /> <br />
                         }
                     </p>
+                    }
 
                     <table class="table">
                         <tr>
@@ -120,16 +123,17 @@
                                     @Html.DisplayFor(modelItem => item.FileName)
                                 </td>
                                 <td>
-
-                                    <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1.2em; color:black; padding-left:5px; float:right;">
-                                        <i class="glyphicon glyphicon-trash"></i>
-                                        <span class="sr-only" style="text-align:right;">Delete</span>
-                                    </a>
-                                    <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1.2em; color:black; padding-left:5px; float:right;">
-                                        <i class="glyphicon glyphicon-pencil"></i>
-                                        <span class="sr-only" style="text-align:right;">Edit</span>
-                                    </a>
-
+                                    @if(User.IsInRole("Admin"))
+                                    {
+                                        <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1.2em; color:black; padding-left:5px; float:right;">
+                                            <i class="glyphicon glyphicon-trash"></i>
+                                            <span class="sr-only" style="text-align:right;">Delete</span>
+                                        </a>
+                                        <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1.2em; color:black; padding-left:5px; float:right;">
+                                            <i class="glyphicon glyphicon-pencil"></i>
+                                            <span class="sr-only" style="text-align:right;">Edit</span>
+                                        </a>
+                                    }
                                     <a href="@Url.Action("Download", new { id = item.ID })" style="font-size:1.2em; color:black; float:right;">
                                         <i class="glyphicon glyphicon-download"></i>
                                         <span class="sr-only" style="text-align:right;">Download</span>
