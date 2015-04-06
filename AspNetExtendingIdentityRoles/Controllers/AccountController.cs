@@ -87,7 +87,6 @@ namespace HNWebPortal.Controllers
             return View(model);
         }
 
-
         [Authorize(Roles = "Admin")]
         public ActionResult Manage(ManageMessageId? message)
         {
@@ -101,7 +100,6 @@ namespace HNWebPortal.Controllers
             ViewBag.ReturnUrl = Url.Action("Manage");
             return View();
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -153,7 +151,6 @@ namespace HNWebPortal.Controllers
             return View(model);
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
@@ -187,7 +184,6 @@ namespace HNWebPortal.Controllers
             }
             return View(model);
         }
-
 
         [Authorize(Roles = "Admin, Staff")]
         public ActionResult Edit(string id, ManageMessageId? Message = null)
