@@ -376,6 +376,59 @@ namespace HNWebPortal.Migrations
             success = idManager.CreateRole("User", "Restricted to business domain activity");
             if (!success) return success;
 
+            success = idManager.CreateRole("Staff-Community", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Outreach", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Staff-Residential", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("New Staff", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Admin", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Leadership", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Audit & Finance", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Community Relations", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Governance", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Operations & Quality", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("New Board Members", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("New Volunteers", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Admin-Non-Client", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Event-Non-Client", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Welcome Desk", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Volunteers-Residential", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Volunteers-Community", "Unknown");
+            if (!success) return success;
+
+            success = idManager.CreateRole("Day Hospice", "Unknown");
+            if (!success) return success;
 
             var newUser = new ApplicationUser()
             {
@@ -383,6 +436,54 @@ namespace HNWebPortal.Migrations
                 FirstName = "John",
                 LastName = "Atten",
                 Email = "jatten@typecastexception.com"
+            };
+
+            var newUser1 = new ApplicationUser()
+            {
+                UserName = "rainy",
+                FirstName = "Rain",
+                LastName = "Maida",
+                Email = "rainy@gmail.com"
+            };
+
+            var newUser2 = new ApplicationUser()
+            {
+                UserName = "onetwo",
+                FirstName = "Stephanie",
+                LastName = "Scottsdale",
+                Email = "oblique@gmail.com"
+            };
+
+            var newUser3 = new ApplicationUser()
+            {
+                UserName = "splashpants",
+                FirstName = "Kevin",
+                LastName = "Allyson",
+                Email = "stresstest@aol.com"
+            };
+
+            var newUser4 = new ApplicationUser()
+            {
+                UserName = "timmeh",
+                FirstName = "Timmy",
+                LastName = "Blockenstylez",
+                Email = "tblokzen@outlook.com"
+            };
+
+            var newUser5 = new ApplicationUser()
+            {
+                UserName = "sportscar",
+                FirstName = "Peter",
+                LastName = "Vansconey",
+                Email = "peteyprogrammy@gmail.com"
+            };
+
+            var newUser6= new ApplicationUser()
+            {
+                UserName = "awrend",
+                FirstName = "Andrew the",
+                LastName = "Man Empacher",
+                Email = "andrewempacher@gmail.com"
             };
 
             // Be careful here - you  will need to use a password which will 
@@ -398,6 +499,27 @@ namespace HNWebPortal.Migrations
             if (!success) return success;
 
             success = idManager.AddUserToRole(newUser.Id, "User");
+            if (!success) return success;
+
+            success = idManager.AddUserToRole(newUser1.Id, "Operations & Quality");
+            if (!success) return success;
+
+            success = idManager.AddUserToRole(newUser2.Id, "Event-Non-Client");
+            if (!success) return success;
+
+            success = idManager.AddUserToRole(newUser3.Id, "Leadership");
+            if (!success) return success;
+
+            success = idManager.AddUserToRole(newUser4.Id, "Day Hospice");
+            if (!success) return success;
+
+            success = idManager.AddUserToRole(newUser5.Id, "Welcome Desk");
+            if (!success) return success;
+
+            success = idManager.AddUserToRole(newUser5.Id, "Welcome Desk");
+            if (!success) return success;
+
+            success = idManager.AddUserToRole(newUser6.Id, "Admin");
             if (!success) return success;
 
             return success;
