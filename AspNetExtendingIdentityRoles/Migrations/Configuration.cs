@@ -319,18 +319,18 @@ namespace HNWebPortal.Migrations
             deaths.ForEach(d => context.DeathNotifications.AddOrUpdate(n => n.Name, d));
             context.SaveChanges();
 
-            var resources = new List<Resource>
-            {
-                new Resource 
-                {
-                    Description = "Hospice Niagara Portal Project Plan",
-                    FileName = "HNPortalProjectPlan.pdf",
-                    CreatedOn = DateTime.Parse("2014-12-16"),
-                    FileContent = File.ReadAllBytes("~/Images/HNPortalProjectPlan.pdf")
-                }
-            };
-            resources.ForEach(d => context.Resources.AddOrUpdate(n => n.FileName, d));
-            context.SaveChanges();
+            //var resources = new List<Resource>
+            //{
+            //    new Resource 
+            //    {
+            //        Description = "Hospice Niagara Portal Project Plan",
+            //        FileName = "HNPortalProjectPlan.pdf",
+            //        CreatedOn = DateTime.Parse("2014-12-16"),
+            //        FileContent = File.ReadAllBytes("~/Images/HNPortalProjectPlan.pdf")
+            //    }
+            //};
+            //resources.ForEach(d => context.Resources.AddOrUpdate(n => n.FileName, d));
+            //context.SaveChanges();
         }
 
 

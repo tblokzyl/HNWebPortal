@@ -8,7 +8,7 @@
     @*/////SideBar//////*@
     <div class="col-md-4">
         @*/////Action Required//////*@
-        <div class="gray-content">
+        <div id="sbar-action" class="gray-content">
             <h2 class="green-header">Action Required</h2>
             <p>
                 <strong>RSVP to Hike For Hospice</strong><br>
@@ -18,7 +18,7 @@
             </p>
         </div>
         @*/////Events//////*@
-        <div class="gray-content">
+        <div id="sbar-events" class="gray-content">
             <h2 class="green-header">Events</h2>
             @{int i = 0;}
             @foreach (var item in Model)
@@ -35,7 +35,7 @@
             }
         </div>
         @*/////Sidebar Announcements//////*@
-        <div class="gray-content">
+        <div id="sbar-announcements" class="gray-content">
 
             <h2 class="green-header">Announcements</h2>
 
@@ -49,7 +49,7 @@
 
         </div>
         @*/////Common Resources//////*@
-        <div class="gray-content">
+        <div id="sbar-resources" class="gray-content">
 
             <h2 class="green-header">Common Resources</h2>
 

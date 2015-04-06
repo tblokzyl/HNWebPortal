@@ -1,0 +1,65 @@
+﻿@model IEnumerable<HospiceWebPortal.Models.Admin>
+
+@{
+    ViewBag.Title = "Hospice Niagara - Admin";
+}
+
+<div class="row">
+    @*/////SideBar//////*@
+    <div class="col-md-4">
+        @*/////Action Required//////*@
+        <div class="gray-content">
+            <h2 class="green-header">Action Required</h2>
+            <p>
+                <strong>RSVP to Hike For Hospice</strong><br>
+                <a href="#">Yes</a> | <a href="#">No</a> | <a href="#">Maybe</a><br><br>
+                <strong>RSVP to the 5 Car Draw</strong><br>
+                <a href="#">Yes</a> | <a href="#">No</a> | <a href="#">Maybe</a>
+            </p>
+        </div>
+        @*/////Events//////*@
+        <div class="gray-content">
+            <h2 class="green-header">Events</h2>
+            <p>
+                <b>January 25, 2015</b> Wavelength<br />
+                Discuss hospice niagara web portal.
+            </p>
+            <p>
+                <b>January 26, 2015</b> Timothy Blokzyl<br />
+                Discuss progress with Dave and Peter.
+            </p>
+        </div>
+        @*/////Sidebar Announcements//////*@
+        <div class="gray-content">
+            <h2 class="green-header">Announcements</h2>
+
+            <p style="text-align:left; padding: 0 15px 0 20px">
+                <strong>Why Do We Use It?</strong><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br><br> <strong>Why Do We Use It?</strong><br>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <br><br> <strong>Where can I get some?</strong><br>
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum.
+            </p>
+
+        </div>
+        @*/////Common Resources//////*@
+        <div class="gray-content">
+
+            <h2 class="green-header">Common Resources</h2>
+
+            <p class="common-resources">
+
+                <a href="#">Health and Safety</a><br>
+                <a href="#">Incident Report</a><br>
+                <a href="#">Mileage & Expense</a><br>
+                <a href="#">Volunteer Ticket Seller Information Sheet</a><br>
+
+            </p>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h2 class="green-header" style="text-align:center;">Administration</h2>
+        <h2 class="green-header" style="text-decoration:none; border-radius: 0 0 5px 5px; text-align:center; background-color:white;">@Html.ActionLink("Manage Users", "Index", "Account", null, new { @style="color:black; text-decoration:none;"})</h2>
+        <h2 class="green-header" style="text-align:center; border-radius: 0 0 5px 5px; background-color:white;">@Html.ActionLink("Manage Roles", "Index", "Roles", null, new {@Style = "color: black; text-decoration:none;" })</h2>
+    </div>
+</div>
