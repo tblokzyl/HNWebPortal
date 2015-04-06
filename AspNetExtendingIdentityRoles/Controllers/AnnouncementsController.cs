@@ -46,6 +46,7 @@ namespace HospiceWebPortal.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Title,Content,Created,Author")] Announcement announcement)
         {
@@ -79,6 +80,7 @@ namespace HospiceWebPortal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "ID,Title,Content,Created,Author")] Announcement announcement)
         {
             if (ModelState.IsValid)

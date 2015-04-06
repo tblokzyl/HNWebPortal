@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace HospiceWebPortal.Models
 {
@@ -14,6 +15,7 @@ namespace HospiceWebPortal.Models
         [StringLength(100, ErrorMessage = "Meeting name cannot be longer than 100 characters.")]
         public string Name { get; set; }
 
+        [AllowHtml]
         [DataType(DataType.MultilineText)]
         [StringLength(1000, ErrorMessage = "Description cannot be longer than 1000 characters.")]
         public string Description { get; set; }

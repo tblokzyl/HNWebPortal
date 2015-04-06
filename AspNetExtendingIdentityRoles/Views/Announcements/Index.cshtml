@@ -119,7 +119,7 @@
 
                 @*/////Article Content//////*@
                 <div class="col-md-12">
-                    <div style="white-space: pre-line">@Html.DisplayFor(modelItem => item.Content)</div>
+                    <div style="white-space: pre-line">@Html.Raw(item.Content)</div>
                 </div>
             </div>
         </div>
