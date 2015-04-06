@@ -254,6 +254,19 @@ namespace HNWebPortal.Migrations
                     sb.ToString(), ex
                 );
             }
+            var home = new List<Home>
+            {
+                new Home
+                {
+                    Author = "Andrew Empacher",
+                    Created = DateTime.Parse("2015-04-05"),
+                    Title = "What is Hospice Niagara",
+                    Content = "Hospice is a concept of care. Hospice Niagara aims to improve the quality of life for people with a life-limiting, progressive illness from the time of diagnosis. The focus is on caring, not curing, and on life, not death. Hospice care extends to family members and caregivers, helping them to care for their loved one and to care for themselves."+ 
+                    "Hospice Niagara's programs and services (with the exception of pharmaceuticals) are free to residents of Niagara, thanks to the goodwill and charitable donations of members of the community."+
+                    "Hospice Niagara provides services to individuals and families in St. Catharines, Niagara Falls, Pelham, Thorold, Wainfleet, Welland, Port Colborne, Fort Erie and Lincoln.  We also serve Niagara-on-the-Lake, in co-operation with the Niagara-on-the-Lake Community Palliative Care Service, and West Lincoln and Grimsby, in co-operation with McNally House Hospice and the Rose Cottage Visiting Volunteers."
+                }
+            };
+            home.ForEach(d => context.Homes.AddOrUpdate(n => n.Title, d));
 
             var meetings = new List<Meeting>
             {
