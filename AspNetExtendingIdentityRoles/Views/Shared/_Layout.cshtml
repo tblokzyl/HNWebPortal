@@ -50,8 +50,8 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
                                     <ul class="dropdown-menu pull-right" role="menu">
                                         <li>@Html.ActionLink("Manage Users", "Index", "Account")</li>
+                                        <li class="divider"></li>
                                         <li>@Html.ActionLink("Manage Roles", "Index", "Roles")</li>
-                                        @*<li class="divider"></li>*@
                                     </ul>
                                 </li>
                             }
@@ -61,6 +61,10 @@
                 </div>
             </div>
         </div>
+        
+        @*This adds and image of your choice with the .wide class*@
+        @*<div class="wide"></div>*@
+        
         <div class="container body-content">
             @RenderBody()
         </div>
