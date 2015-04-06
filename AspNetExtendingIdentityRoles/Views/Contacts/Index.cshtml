@@ -8,7 +8,7 @@
     @*/////SideBar//////*@
     <div class="col-md-4">
         @*/////Action Required//////*@
-        <div class="gray-content">
+        <div id="sbar-action" class="gray-content">
             <h2 class="green-header">Action Required</h2>
             <p>
                 <strong>RSVP to Hike For Hospice</strong><br>
@@ -18,8 +18,8 @@
             </p>
         </div>
         @*/////Events//////*@
-        <div class="gray-content">
-            <h2 class="green-header">Events</h2>
+        <div id="sbar-events" class="gray-content">
+            <h2 id="sbar-events" class="green-header">Events</h2>
             <p>
                 <b>January 25, 2015</b> Wavelength<br />
                 Discuss hospice niagara web portal.
@@ -30,25 +30,25 @@
             </p>
         </div>
         @*/////Sidebar Announcements//////*@
-        <div class="gray-content">
+        <div id="sbar-announcements" class="gray-content">
 
             <h2 class="green-header">Announcements</h2>
 
             <p style="text-align:left; padding: 0 15px 0 20px">
                 @*@{int i = 0;}
-                    @foreach (var item in Model)
+                @foreach (var item in Model)
+                {
+                    <strong>@Html.DisplayFor(modelItem => item.FirstName)</strong><br />
+                    if (i == 2)
                     {
-                        <strong>@Html.DisplayFor(modelItem => item.FirstName)</strong><br />
-                        if (i == 2)
-                        {
-                            break;
-                        }
-                        i++;
-                    }*@
+                        break;
+                    }
+                    i++;
+                }*@
                 @*@for (i=0; i<3; i++; var item in Model)
-                    {
-                        <strong>@Html.DisplayFor(modelItem => item.FirstName)</strong><br>
-                    }*@
+                {
+                    <strong>@Html.DisplayFor(modelItem => item.FirstName)</strong><br>
+                }*@
                 <strong>Why Do We Use It?</strong><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br><br> <strong>Why Do We Use It?</strong><br>
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <br><br> <strong>Where can I get some?</strong><br>
@@ -58,7 +58,7 @@
 
         </div>
         @*/////Common Resources//////*@
-        <div class="gray-content">
+        <div id="sbar-resources" class="gray-content">
 
             <h2 class="green-header">Common Resources</h2>
 
