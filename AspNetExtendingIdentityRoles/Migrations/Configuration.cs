@@ -26,51 +26,25 @@ namespace HNWebPortal.Migrations
 
             var homeArticles = new List<Home>
             {
-                new Home 
-                { 
-                    Title = "Nullam fringilla mattis tincidunt", 
-                    Content = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making " 
-                    + "it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, "
-                    + "consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum "
-                    + "comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise "
-                    + "on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.",
-                    Created = DateTime.Parse("2011-03-12"), 
-                    Author = "Tim Blokzyl"
+                new Home
+                {
+                    Author = "Andrew Empacher",
+                    Created = DateTime.Parse("2015-04-05"),
+                    Title = "What is Hospice Niagara",
+                    Content = "Hospice is a concept of care. Hospice Niagara aims to improve the quality of life for people with a life-limiting, progressive illness from the time of diagnosis. The focus is on caring, not curing, and on life, not death. Hospice care extends to family members and caregivers, helping them to care for their loved one and to care for themselves."+ 
+                    "Hospice Niagara's programs and services (with the exception of pharmaceuticals) are free to residents of Niagara, thanks to the goodwill and charitable donations of members of the community."+
+                    "Hospice Niagara provides services to individuals and families in St. Catharines, Niagara Falls, Pelham, Thorold, Wainfleet, Welland, Port Colborne, Fort Erie and Lincoln.  We also serve Niagara-on-the-Lake, in co-operation with the Niagara-on-the-Lake Community Palliative Care Service, and West Lincoln and Grimsby, in co-operation with McNally House Hospice and the Rose Cottage Visiting Volunteers."
                 },
 
-                new Home 
-                {  
-                    Title = "Suspendisse tincidunt tellus in cursus", 
-                    Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et quam libero. Ut viverra erat eu placerat tincidunt. Maecenas vehicula tortor ut " 
-                    + "ullamcorper lacinia. Duis feugiat enim turpis, efficitur faucibus quam fermentum nec. Donec sodales tincidunt nisl, sed hendrerit felis feugiat sed. Aliquam eu urna " 
-                    + "dolor. Fusce tincidunt sapien risus, nec aliquet justo iaculis eget. Vestibulum a quam massa. Mauris id massa sed dui pellentesque porttitor. Ut lorem ante, efficitur " 
-                    + "id ex id, lobortis pulvinar orci. Nullam sollicitudin vel erat a finibus. Fusce gravida ullamcorper ultrices. Nam dictum felis at imperdiet aliquet. Quisque a orci ut " 
-                    + "felis feugiat pretium quis non ante. Cras purus turpis, venenatis sit amet fermentum hendrerit, fringilla sit amet orci. Quisque dapibus ipsum ipsum, eu varius augue" 
-                    + "interdum eu. \r\n\r\n Etiam tempor vitae velit ac maximus. Aliquam ultricies malesuada felis, at ultrices turpis tempor eget. Nullam eget tincidunt mauris. Donec eget orci" 
-                    + "eget ipsum commodo eleifend vel vel lorem. Sed et urna feugiat, eleifend massa non, mollis dui. Sed lobortis pulvinar facilisis. Sed magna sapien, sollicitudin vel " 
-                    + "blandit sed, porta et enim.", 
-                    Created = DateTime.Parse("2011-03-12"), 
-                    Author = "Hospice Niagara"
-                },
-
-                new Home 
-                { 
-                    Title = "Lorem ipsum dolor sit amet", 
-                    Content = "Aenean tristique at tellus quis consequat. Aenean ex nibh, fringilla a nulla in, elementum ultricies tortor. Nullam at gravida lacus. Integer molestie odio non " 
-                    + "nunc dictum venenatis. Fusce ultrices dignissim eleifend. Nulla facilisi. Nunc purus lorem, ultricies ut tellus at, vehicula semper sem. Fusce sit amet massa ligula. " 
-                    + "Donec vel fringilla arcu. Suspendisse diam orci, interdum in tortor ac, tincidunt hendrerit arcu. Integer dolor metus, tempor ac mi vel, interdum hendrerit erat. Fusce " 
-                    + "eu convallis dolor. Curabitur faucibus libero in neque euismod vehicula. Nullam vel finibus nisl, faucibus eleifend ex. \r\n\r\n"
-                    + "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt blandit urna sed pellentesque. Nam eget quam at dolor molestie placerat. Praesent viverra enim " 
-                    + "nec ante hendrerit, ac consequat est eleifend. Fusce id diam finibus, condimentum lacus ut, lobortis odio. Aliquam dictum euismod sem posuere ultricies. Praesent eget " 
-                    + "est velit. Aenean a lectus non lectus commodo sollicitudin ut a sapien. Aliquam in porttitor lectus, ac rutrum ipsum. Nulla ut consequat nisi, et pharetra dolor. " 
-                    + "Pellentesque condimentum accumsan nisl non volutpat. Aliquam rutrum efficitur faucibus. Donec quis sodales eros. Nulla vestibulum tempus purus non pharetra. \r\n\r\n"
-                    + "Nam facilisis sodales tortor et viverra. Donec sollicitudin auctor lectus, sed vestibulum libero elementum vitae. Pellentesque vel nulla mi. Nam arcu sapien, lobortis vel " 
-                    + "sem at, malesuada viverra ex. Phasellus eros orci, lacinia eget metus a, porta fermentum enim. Praesent eu venenatis mauris, vitae scelerisque massa. Nam dictum, lorem " 
-                    + "id egestas posuere, risus odio tempor mi, in mollis nulla sem vel libero. Aenean in magna sed libero vestibulum ultrices. Fusce libero ipsum, ultricies non viverra in, " 
-                    + "tincidunt vel velit.", 
-                    Created = DateTime.Parse("2011-03-12"), 
-                    Author = "Hospice Niagara"
-                },
+                new Home
+                {
+                    Author = "Andrew Empacher",
+                    Created = DateTime.Parse("2015-04-05"),
+                    Title = "What is Hospice Niagara",
+                    Content = "Hospice is a concept of care. Hospice Niagara aims to improve the quality of life for people with a life-limiting, progressive illness from the time of diagnosis. The focus is on caring, not curing, and on life, not death. Hospice care extends to family members and caregivers, helping them to care for their loved one and to care for themselves."+ 
+                    "Hospice Niagara's programs and services (with the exception of pharmaceuticals) are free to residents of Niagara, thanks to the goodwill and charitable donations of members of the community."+
+                    "Hospice Niagara provides services to individuals and families in St. Catharines, Niagara Falls, Pelham, Thorold, Wainfleet, Welland, Port Colborne, Fort Erie and Lincoln.  We also serve Niagara-on-the-Lake, in co-operation with the Niagara-on-the-Lake Community Palliative Care Service, and West Lincoln and Grimsby, in co-operation with McNally House Hospice and the Rose Cottage Visiting Volunteers."
+                }
             };
             homeArticles.ForEach(d => context.Homes.AddOrUpdate(n => n.Title, d));
             context.SaveChanges();
@@ -254,19 +228,6 @@ namespace HNWebPortal.Migrations
                     sb.ToString(), ex
                 );
             }
-            var home = new List<Home>
-            {
-                new Home
-                {
-                    Author = "Andrew Empacher",
-                    Created = DateTime.Parse("2015-04-05"),
-                    Title = "What is Hospice Niagara",
-                    Content = "Hospice is a concept of care. Hospice Niagara aims to improve the quality of life for people with a life-limiting, progressive illness from the time of diagnosis. The focus is on caring, not curing, and on life, not death. Hospice care extends to family members and caregivers, helping them to care for their loved one and to care for themselves."+ 
-                    "Hospice Niagara's programs and services (with the exception of pharmaceuticals) are free to residents of Niagara, thanks to the goodwill and charitable donations of members of the community."+
-                    "Hospice Niagara provides services to individuals and families in St. Catharines, Niagara Falls, Pelham, Thorold, Wainfleet, Welland, Port Colborne, Fort Erie and Lincoln.  We also serve Niagara-on-the-Lake, in co-operation with the Niagara-on-the-Lake Community Palliative Care Service, and West Lincoln and Grimsby, in co-operation with McNally House Hospice and the Rose Cottage Visiting Volunteers."
-                }
-            };
-            home.ForEach(d => context.Homes.AddOrUpdate(n => n.Title, d));
 
             var meetings = new List<Meeting>
             {
