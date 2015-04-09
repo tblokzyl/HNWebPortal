@@ -65,9 +65,10 @@
         @*/////Welcome Article//////*@
         <div class="gray-content">
 
-            <h2 class="green-header">Welcome</h2>
+            <div class="green-header" style="margin-top:20px; font-size:1.8em;">Welcome @if (User.IsInRole("Admin"))
+            {<b style="margin-top:-21px;" class="pull-right">@Html.ActionLink("+", "Create", null, new { @class = "plus-sign" })</b>}</div>
 
-            <p>
+            <p style ="margin-top: 10px;">
                 We would like to welcome our newest recruit! This is a web portal created by the students of Niagara College in the Computer Programmer Analyst Program.
                 These students have a vision of what they would like the future to hold, and hope that along with our organization they can make it happen!
             </p>
@@ -75,12 +76,7 @@
      </div>
     <div class="col-md-4"></div>
     <div class="col-md-8">
-        @if (User.IsInRole("Admin"))
-        { 
-        <p class="btn btn-default " style="text-decoration:none; margin: -10px 0 10px 0px; ">
-            @Html.ActionLink("New Article", "Create", new { @class = "btn btn-primary" })
-        </p>
-        }
+
 
         @*/////Get Articles//////*@
         @foreach (var item in Model)
@@ -128,7 +124,6 @@
         }
     </div>
 </div>
-@*/////Create New Articles//////*@
-<>
+
 
 

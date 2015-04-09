@@ -97,12 +97,10 @@
 
             else
             {
-                if (User.IsInRole("Admin, Volunteer"))
-                {
+
                 <div style="margin:20px 0 0px 18px; line-height:40px;">
                     @Html.ActionLink("Create New Contact", "Create")
                 </div>
-                }
 
                 <div class="contact-content" style="margin: 0 10px 0 10px;">
                     <table class="table">
@@ -116,8 +114,6 @@
                             <th>
                                 @Html.ActionLink("Position", "Index", new { sortOrder = ViewBag.PositionSortParm })
                             </th>
-                            @if (User.IsInRole("Admin, Volunteer"))
-                            {
                                 <th>
                                     @Html.DisplayNameFor(model => model.Phone)
                                 </th>
@@ -125,7 +121,6 @@
                                     @Html.DisplayNameFor(model => model.EXT)
                                 </th>
                             <th></th>
-                            }
                         </tr>
 
                         @foreach (var item in Model)
@@ -157,15 +152,12 @@
 
 
                                 </td>
-                                @if (User.IsInRole("Admin, Volunteer"))
-                                {
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Phone)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.EXT)
                                 </td>
-                                }
                                 <td>
                                     @if (User.IsInRole("Admin, Volunteer"))
                                     {

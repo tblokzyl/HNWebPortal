@@ -58,8 +58,13 @@
     </div>
     <div class="col-md-8">
         <div class="gray-content">
-            <div class="green-header" style="margin-top:20px; font-size:1.8em;">Announcements @if(User.IsInRole("Admin")){<b style="margin-top:-21px;" class="pull-right">@Html.ActionLink("+", "Create", null, new { @style = "color:black; margin-bottom:10px; background-color:#80a23e; font-size: 2em; text-decoration:none; background-color:rgba(255,0,0,0);" })</b>}</div>
-
+            <div class="green-header" style="margin-top:20px; font-size:1.8em;">
+                Announcements 
+                @if(User.IsInRole("Admin"))
+                {
+                    <b style="margin-top:-21px;" class="pull-right">@Html.ActionLink("+", "Create", null, new { @class = "plus-sign" })</b>
+                }
+            </div>
             <p style="margin-top: 10px;">
                 Hospice Niagara provides services to individuals and families in St. Catharines, Niagara Falls, Pelham, Thorold, Wainfleet, Welland, Port Colborne, Fort Erie and Lincoln.  We also serve Niagara-on-the-Lake, in co-operation with the Niagara-on-the-Lake Community Palliative Care Service, and West Lincoln and Grimsby, in co-operation with McNally House Hospice and the Rose Cottage Visiting Volunteers.
             </p>
@@ -112,8 +117,6 @@
     </div>
 </div>
 
-
-@*/////Create New Articles//////*@
 
 
 

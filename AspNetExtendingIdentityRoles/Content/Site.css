@@ -46,6 +46,10 @@ h2
     margin-bottom:-115px;*/
 }
 
+.plus-sign{
+    color:black; margin-bottom:10px; background-color:#80a23e; font-size: 2em; text-decoration:none; background-color:rgba(255,0,0,0);
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
