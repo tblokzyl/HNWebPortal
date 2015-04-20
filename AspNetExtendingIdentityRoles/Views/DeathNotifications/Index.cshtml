@@ -88,6 +88,8 @@
                 </form>
             </div>
 
+            
+
             @if (Model.Count() == 0)
             {
                 <div class="col-md-12" style="padding-top:20px; line-height:30px">
@@ -97,11 +99,9 @@
             }
         </div>
 
-
-
         @if (Model.Count() > 0)
         {
-
+            int i = 0;
             @*@Html.TextBox("SearchString", null, new { @class = "form-control pull-right", @style = "display:inline;"})
                 <input type="submit" class="btn btn-default pull-right" value="Search" />*@
 
@@ -125,7 +125,7 @@
 
             @*/////Get Articles//////*@
             if (User.IsInRole("Admin"))
-            { 
+            {
             <div class="col-md-12">
                 <p class="btn btn-default " style="text-decoration:none; margin: 10px 0 10px -15px; ">
                     @Html.ActionLink("Create Death Notification", "Create", new { @class = "btn btn-primary" })
