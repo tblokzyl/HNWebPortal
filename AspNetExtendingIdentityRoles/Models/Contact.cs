@@ -8,7 +8,7 @@ namespace HospiceWebPortal.Models
 {
     public class Contact
     {
-        public int ID { get; set; }
+        public int ContactID { get; set; }
 
         [Display(Name = "Full Name")]
         public string FormalName
@@ -32,6 +32,10 @@ namespace HospiceWebPortal.Models
         [Required(ErrorMessage = "You cannot leave the position blank!")]
         [StringLength(100, ErrorMessage = "Position cannot be more than 100 characters long.")]
         public string Position { get; set; }
+
+        [Required(ErrorMessage = "You cannot leave the location blank!")]
+        [StringLength(100, ErrorMessage = "Location cannot be more than 100 characters long.")]
+        public string Location { get; set; }
 
         //[Required(ErrorMessage = "You cannot leave the position description blank!")]
         //[StringLength(500, ErrorMessage = "Position Description be more than 500 characters long.")]

@@ -40,6 +40,19 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Location, new List<SelectListItem> 
+                {
+                    new SelectListItem {Text = "St. Catharines (Stabler Centre)", Value = "St. Catharines"},
+                    new SelectListItem {Text = "North Niagara (Stabler Centre)", Value = "Niagara North"} ,
+                    new SelectListItem {Text = "South Niagara (Welland)", Value = "Niagara South"}   
+                }, "Select Office Location")
+                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })

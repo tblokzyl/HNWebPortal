@@ -10,9 +10,6 @@
     <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
     <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 
-    <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-    <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
-
     <script type="text/javascript">
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover({
@@ -82,6 +79,7 @@
             <p>&copy; @DateTime.Now.Year - Hospice Niagara - The Stabler Centre <br> 403 Ontario Street, Unit 2<br> St. Catharines, ON L2B 1L5 <br> Tel: (905) 984-8766 <br> Fax: (905) 984-8242</p>
         </footer>
     }
+
     @if (!User.Identity.IsAuthenticated)
     {
         //Response.Redirect("~/Account/Login");

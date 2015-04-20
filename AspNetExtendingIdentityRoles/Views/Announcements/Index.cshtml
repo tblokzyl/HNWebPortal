@@ -3,6 +3,12 @@
 @{
     ViewBag.Title = "Announcements";
 }
+
+@if (!User.Identity.IsAuthenticated)
+{
+    Response.Redirect("~/Account/Login");
+}
+
 <div class="row">
     <div class="col-md-4">
         <div id="sbar-action" class="gray-content">

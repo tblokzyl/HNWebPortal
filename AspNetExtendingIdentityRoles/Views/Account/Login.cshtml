@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col-md-2">
-        <img id="logo" src="~/Images/Stabler-Centre---black-no-bkg.gif">
+        <img class="hidden-xs hidden-sm" id="logo" src="~/Images/Stabler-Centre---black-no-bkg.gif">
     </div>
     <div class="col-md-10">
     </div>
@@ -20,7 +20,7 @@
 }
 <div class="row">
     <div class="login">
-        <h2 id="login-header" class="col-md-7 col-md-offset-5">@ViewBag.Title.</h2>
+        <h2 id="login-header" class="col-md-7 col-sm-7 col-sm-offset-5 col-md-offset-5">@ViewBag.Title.</h2>
         <div class="col-md-12">
             <section id="loginForm">
                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -29,9 +29,9 @@
                     @*<h4>Use a local account to log in.</h4>*@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
-                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-5 control-label" })
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-5 col-sm-7 col-sm-offest-7 control-label" })
                         <div class="col-md-2">
-                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "col-md-7 col-sm-7 col-sm-offest-7 form-control" })
                             @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
                         </div>
                     </div>

@@ -22,6 +22,12 @@ body {
   background-size:cover;
 }
 
+#logo .col-sm-12 .col-xs-12
+{
+    width:100px;
+    height:100px;
+}
+
 h2
 {
     font-family: 'Open Sans';

@@ -4,6 +4,11 @@
     ViewBag.Title = "Manage Roles";
 }
 
+@if (!User.Identity.IsAuthenticated)
+{
+    Response.Redirect("~/Account/Login");
+}
+
 <div class="row">
     @*/////SideBar//////*@
     <div class="col-md-4">

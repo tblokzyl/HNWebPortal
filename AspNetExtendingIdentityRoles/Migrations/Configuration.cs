@@ -63,6 +63,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Timothy",
                     LastName = "Blokzyl",
                     Position = "Lead Programmer",
+                    Location = "St. Catharines",
                     Phone = 1234567890,
                     EXT = 777
                 },
@@ -71,6 +72,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Alice",
                     LastName = "Merry",
                     Position = "Community Relations Manager",
+                    Location = "St. Catharines",
                     EXT = 230
                 },
                 new Contact 
@@ -78,6 +80,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Andrea",
                     LastName = "Crompton",
                     Position = "Community Relations Associate",
+                    Location = "St. Catharines",
                     EXT = 231
                 },
                 new Contact 
@@ -85,6 +88,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Barbara",
                     LastName = "Cowell",
                     Position = "Executive Assistant",
+                    Location = "St. Catharines",
                     EXT = 223
                 },
                 new Contact 
@@ -92,6 +96,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Barb",
                     LastName = "Nolan",
                     Position = "Day Hospice Coordinator",
+                    Location = "St. Catharines",
                     EXT = 270
                 },
                 new Contact 
@@ -99,6 +104,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Carol",
                     LastName = "Nagy",
                     Position = "Executive Director",
+                    Location = "St. Catharines",
                     Phone = 2894078197,
                     EXT = 225
                 },
@@ -107,6 +113,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Diane",
                     LastName = "Fahlman",
                     Position = "Legacy Associate",
+                    Location = "St. Catharines",
                     EXT = 250
                 },
                 new Contact 
@@ -114,6 +121,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Diane",
                     LastName = "Reid",
                     Position = "Palliative Care Consultant",
+                    Location = "St. Catharines",
                     Phone = 9055156276,
                     EXT = 232
                 },
@@ -122,6 +130,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Dorothy",
                     LastName = "Hunse",
                     Position = "Chaplain/Psychosocial-Spiritual Advisor",
+                    Location = "St. Catharines",
                     EXT = 249
                 },
                 new Contact 
@@ -129,6 +138,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Brian",
                     LastName = " Kerley",
                     Position = "Medical Director",
+                    Location = "St. Catharines",
                     Phone = 9056415684,
                     EXT = 234
                 },
@@ -137,6 +147,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Jessica",
                     LastName = "Estabrooks",
                     Position = "Finance and Operations Manager",
+                    Location = "St. Catharines",
                     EXT = 238
                 },
                 new Contact 
@@ -144,6 +155,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Jim",
                     LastName = "Horsthuis",
                     Position = "Community Programs Manager",
+                    Location = "St. Catharines",
                     Phone = 9053216948,
                     EXT = 229
                 },
@@ -152,6 +164,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Kate",
                     LastName = "Murrell",
                     Position = "Administrative Assistant",
+                    Location = "St. Catharines",
                     EXT = 222
                 },
                 new Contact 
@@ -159,6 +172,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Kelly",
                     LastName = "Vlaar",
                     Position = "Human Resources, Quality Improvement Manager",
+                    Location = "St. Catharines",
                     EXT = 269
                 },
                 new Contact 
@@ -166,6 +180,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Patrick",
                     LastName = "Engel",
                     Position = "Chef",
+                    Location = "St. Catharines",
                     EXT = 241
                 },
                 new Contact 
@@ -173,6 +188,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Laurie",
                     LastName = "Straw",
                     Position = "Director of Care",
+                    Location = "St. Catharines",
                     Phone = 9056585867,
                     EXT = 247
                 },
@@ -181,6 +197,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Margie",
                     LastName = "Reid",
                     Position = "Coordinator of Volunteer Development",
+                    Location = "St. Catharines",
                     EXT = 224
                 },
                 new Contact 
@@ -188,6 +205,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Marnie",
                     LastName = "Engel",
                     Position = "Community Programs Volunteer Coordinator",
+                    Location = "St. Catharines",
                     EXT = 228
                 },
                 new Contact 
@@ -195,6 +213,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Melissa",
                     LastName = "DeBeau",
                     Position = " Financial Administrative Associate",
+                    Location = "St. Catharines",
                     EXT = 235
                 },
                 new Contact 
@@ -202,6 +221,7 @@ namespace HNWebPortal.Migrations
                     FirstName = "Melissa",
                     LastName = "Penner",
                     Position = "Bereavement Advisor",
+                    Location = "St. Catharines",
                     EXT = 233
                 },
                 new Contact 
@@ -209,11 +229,84 @@ namespace HNWebPortal.Migrations
                     FirstName = "Sue",
                     LastName = "Shipley",
                     Position = "Pallative Care Consultant",
+                    Location = "St. Catharines",
                     Phone = 2899684068,
                     EXT = 301
+                },
+                new Contact 
+                { 
+                    FirstName = "Carma",
+                    LastName = "Pollock",
+                    Position = "NNPCT Nurse Clinician",
+                    Location = "Niagara North",
+                    Phone = 9053295428,
+                    EXT = 264
+                },
+                new Contact 
+                { 
+                    FirstName = "Cheryl",
+                    LastName = "Rothwell",
+                    Position = "Clinical Navigator, Client Service Coordinator",
+                    Location = "Niagara North",
+                    Phone = 2892419168,
+                    EXT = 263
+                },
+                new Contact 
+                { 
+                    FirstName = "Geoff",
+                    LastName = "Straw",
+                    Position = "Psychosocial/Bereavement Clinician",
+                    Location = "Niagara North",
+                    Phone = 2892414805,
+                    EXT = 226
+                },
+                new Contact 
+                { 
+                    FirstName = "Galina",
+                    LastName = "Arvinte",
+                    Position = "NNPCT Physician",
+                    Location = "Niagara North",
+                    Phone = 9057083314,
+                    EXT = 263
+                },
+                new Contact 
+                { 
+                    FirstName = "Clare",
+                    LastName = "Braun",
+                    Position = "Psychosocial/Bereavement Clinician",
+                    Location = "Niagara South",
+                    Phone = 2899294570,
+                    EXT = 004
+                },
+                new Contact 
+                { 
+                    FirstName = "Debbie",
+                    LastName = "Dooler",
+                    Position = "NSPCT Physician",
+                    Location = "Niagara South",
+                    Phone = 9053806930,
+                    EXT = 003
+                },
+                new Contact 
+                { 
+                    FirstName = "Maria",
+                    LastName = "Becker",
+                    Position = "Psycho-Spiritual Clinician",
+                    Location = "Niagara South",
+                    Phone = 2899294691,
+                    EXT = 002
+                },
+                new Contact 
+                { 
+                    FirstName = "Susan",
+                    LastName = "DeCicco",
+                    Position = "Client Service Coordinator, Clinical Navigator",
+                    Location = "Niagara South",
+                    Phone = 2899294319,
+                    EXT = 001
                 }
             };
-            contacts.ForEach(d => context.Contacts.AddOrUpdate(n => n.EXT, d));
+            contacts.ForEach(d => context.Contacts.AddOrUpdate(n => n.Position, d));
             try
             {
                 context.SaveChanges();

@@ -4,6 +4,11 @@
     ViewBag.Title = "Index";
 }
 
+@if (!User.Identity.IsAuthenticated)
+{
+    Response.Redirect("~/Account/Login");
+}
+
 <div class="row">
     @*/////SideBar//////*@
     <div class="col-md-4">
@@ -76,16 +81,15 @@
                 <form class="navbar-form" role="search" style=" margin:0 -10px 0 -15px;">
                     <div class="input-group">
                         <h2 style="display:inline;">Staff Contact Info</h2>
-                        <input type="text" class="form-control pull-right" placeholder="Search" name="searchString">
+                        <input type="text" style="padding-bottom:10px;" class="form-control pull-right" placeholder="Search" name="searchString">
                         <div class="input-group-btn">
-                            <button class="btn btn-default" style="padding:7px 7px 6px 7px;" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                            <button class="btn btn-default" style="padding:7px 7px 6px 7px;">@Html.ActionLink(" ", "Index")<i class="glyphicon glyphicon-remove"></i></button>
+                            <button class="btn btn-default" style="padding:6px 7px 6px 7px;" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            <button class="btn btn-default" style="padding:6px 7px 6px 7px;">@Html.ActionLink(" ", "Index")<i class="glyphicon glyphicon-remove"></i></button>
+                            <button class="btn btn-default" style="padding:6px 7px 6px 7px;">@Html.ActionLink(" ", "Index")<i class="glyphicon glyphicon-cog"></i></button>
                         </div>
                     </div>
                 </form>
             </div>
-
-
 
             @if (Model.Count() == 0)
             {
@@ -97,96 +101,282 @@
 
             else
             {
-
-                <div style="margin:20px 0 0px 18px; line-height:40px;">
-                    @Html.ActionLink("Create New Contact", "Create")
-                </div>
-
+                int NN = 0;
+                int NS = 0;
+                int stkitts = 0;
+                if(User.IsInRole("Admin"))
+                {
+                    <div style="margin:20px 0 0px 18px; line-height:40px;">
+                        @Html.ActionLink("Create New Contact", "Create", null, null, new { @class="btn btn-"}) <a href="@Url.Action("Export", "Contacts")" class="pull-right btn btn-success" style="background-color:#1B5C00; margin:5px 10px 5px 5px;">
+                        Export Contacts &nbsp;
+                        <span class="glyphicon glyphicon-download" />
+                        </a>
+                    </div>
+                }
                 <div class="contact-content" style="margin: 0 10px 0 10px;">
                     <table class="table">
-                        <tr>
-                            <th>
-                                @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.FNameSortParm })
-                            </th>
-                            <th>
-                                @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.LNameSortParm })
-                            </th>
-                            <th>
-                                @Html.ActionLink("Position", "Index", new { sortOrder = ViewBag.PositionSortParm })
-                            </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Phone)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.EXT)
-                                </th>
-                            <th></th>
-                        </tr>
-
-                        @foreach (var item in Model)
+                        @if(User.IsInRole("Admin"))
                         {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.FirstName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.LastName)
-                                </td>
-                                <td>
+                            foreach (var item in Model)
+                            {
+                                if(item.Location.Contains("St. Catharines") && stkitts == 0)
+                                {
+                                    <tr>
+                                        <td colspan="6" class="text-center" style=" background-color:#e1e9d2; color:black; font-size:1em; margin-left:100px">
+                                            <b style ="font-size:1.3em;">
+                                                Hospice Niagara - The Stabler Centre
+                                            </b><br>
+                                            403 Ontario Street, Unit 2, St. Catharines, L2N 1L5<br>
+                                            Tel: 905-984-8766      Admin Fax: 905-934-9430     Nurse Fax 905-646-3860
+                                        </td>
+                                    </tr>
+                                        <tr>
+                                            <th>
+                                                @Html.ActionLink("First Name", "Index", null, new { sortOrder = ViewBag.FNameSortParm }, new { @style = "color:black; text-decoration:none;" })
+                                            </th>
+                                            <th>
+                                                @Html.ActionLink("Last Name", "Index", null, new { sortOrder = ViewBag.LNameSortParm }, new { @style = "color:black; text-decoration:none;" })
+                                            </th>
+                                            <th>
+                                                @Html.ActionLink("Position", "Index", null, new { sortOrder = ViewBag.PositionSortParm }, new { @style = "color:black; text-decoration:none;" })
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Phone)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.EXT)
+                                            </th>
+                                        </tr>
+                                    stkitts++;
+                                }
+                                if (item.Location.Contains("St. Catharines"))
+                                {   
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LastName)
+                                        </td>
+                                        <td>
 
-                                    <div class="bs-example">
-                                        <a href="#" style="text-decoration:none; color:black;" data-trigger="hover" data-toggle="popover" data-html="true" title="
-                                            <strong>Areas Of Responsibility</strong>" data-content='
-                                            Leadership Team Member<br />
-                                            Finance Lead<br />
-                                            IT Lead<br />
-                                            Facilities Lead<br />
-                                            Administration Lead
-                                            '>@Html.DisplayFor(model => item.Position)
-                                        </a>
-                                    </div>
+                                            <div class="bs-example">
+                                                <a href="#" style="text-decoration:none; color:black;" data-trigger="hover" data-toggle="popover" data-html="true" title="
+                                                    <strong>Areas Of Responsibility</strong>" data-content='
+                                                    Leadership Team Member<br />
+                                                    Finance Lead<br />
+                                                    IT Lead<br />
+                                                    Facilities Lead<br />
+                                                    Administration Lead
+                                                    '>@Html.DisplayFor(model => item.Position)
+                                                </a>
+                                            </div>
 
-                                    @*////Possible way to implement modals instead of popovers for position descriptions////*@
+                                            @*////Possible way to implement modals instead of popovers for position descriptions////*@
 
-                                    @*<a  data-toggle="modal" href="/Contacts/Index/@item.ID">@Html.DisplayFor(modelitem => item.Position) </a>*@
+                                            @*<a  data-toggle="modal" href="/Contacts/Index/@item.ID">@Html.DisplayFor(modelitem => item.Position) </a>*@
 
 
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Phone)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.EXT)
-                                </td>
-                                <td>
-                                    @if (User.IsInRole("Admin, Volunteer"))
-                                    {
-                                    <a href="@Url.Action("Delete", new { id = item.ID })" style="font-size:1em; color:black; padding-left:5px; float:right;">
-                                        <i class="glyphicon glyphicon-trash"></i>
-                                        <span class="sr-only" style="text-align:right;">Delete</span>
-                                    </a>
-                                    <a href="@Url.Action("Edit", new { id = item.ID })" style="font-size:1em; color:black; float:right;">
-                                        <i class="glyphicon glyphicon-pencil"></i>
-                                        <span class="sr-only" style="text-align:right;">Edit</span>
-                                    </a>
-                                    }
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Phone)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.EXT)
+                                        </td>
+                                        <td>
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                            <a href="@Url.Action("Delete", new { id = item.ContactID })" style="font-size:1em; color:black; padding-left:5px; float:right;">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                                <span class="sr-only" style="text-align:right;">Delete</span>
+                                            </a>
+                                            <a href="@Url.Action("Edit", new { id = item.ContactID })" style="font-size:1em; color:black; float:right;">
+                                                <i class="glyphicon glyphicon-pencil"></i>
+                                                <span class="sr-only" style="text-align:right;">Edit</span>
+                                            </a>
+                                            }
 
-                                    @*////This will add a details view if neccessary////*@
-                                    @*@Html.ActionLink("Details", "Details", new { id = item.ID }) |*@
-                                </td>
-                            </tr>
+                                            @*////This will add a details view if neccessary////*@
+                                            @*@Html.ActionLink("Details", "Details", new { id = item.ID }) |*@
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                        
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            foreach (var item in Model)
+                            {
+                                if(item.Location.Contains("Niagara North") && NN == 0)
+                                {
+                                    <tr>
+                                        <td colspan="6" class="text-center" style=" background-color:#e1e9d2; font-size:1em; color:black;">
+                                            <b style="font-size:1.3em;">
+                                                Niagara North Shared Care Palliative Care Team
+                                            </b><br>
+                                            The Stabler Centre, 403 Ontario Street, Unit 2, St. Catharines, L2N 1L5<br>
+                                            Tel: 905-984-8766                  Fax: 905-934-9430
+                                        </td>
+                                    </tr>
+
+                                        <tr>
+                                            <th>
+                                                @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.FNameSortParm }, new { @style = "color:black; text-decoration:none;" })
+                                            </th>
+                                            <th>
+                                                @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.LNameSortParm }, new { @style = "color:black; text-decoration:none;" })
+                                            </th>
+                                            <th>
+                                                @Html.ActionLink("Position", "Index", new { sortOrder = ViewBag.PositionSortParm }, new { @style = "color:black; text-decoration:none;" })
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Phone)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.EXT)
+                                            </th>
+                                        </tr>
+                                        NN++;
+                                }
+                                if (item.Location.Contains("Niagara North"))
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LastName)
+                                        </td>
+                                        <td>
+
+                                            <div class="bs-example">
+                                                <a href="#" style="text-decoration:none; color:black;" data-trigger="hover" data-toggle="popover" data-html="true" title="
+                                                    <strong>Areas Of Responsibility</strong>" data-content='
+                                                    Leadership Team Member<br />
+                                                    Finance Lead<br />
+                                                    IT Lead<br />
+                                                    Facilities Lead<br />
+                                                    Administration Lead
+                                                    '>@Html.DisplayFor(model => item.Position)
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Phone)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.EXT)
+                                        </td>
+                                        <td>
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <a href="@Url.Action("Delete", new { id = item.ContactID })" style="font-size:1em; color:black; padding-left:5px; float:right;">
+                                                    <i class="glyphicon glyphicon-trash"></i>
+                                                    <span class="sr-only" style="text-align:right;">Delete</span>
+                                                </a>
+                                                <a href="@Url.Action("Edit", new { id = item.ContactID })" style="font-size:1em; color:black; float:right;">
+                                                    <i class="glyphicon glyphicon-pencil"></i>
+                                                    <span class="sr-only" style="text-align:right;">Edit</span>
+                                                </a>
+                                            }
+
+                                            @*////This will add a details view if neccessary////*@
+                                                @*@Html.ActionLink("Details", "Details", new { id = item.ID }) |*@
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            foreach (var item in Model)
+                            {
+                                if (item.Location.Contains("Niagara South") && NS == 0)
+                                {
+                                    <tr>
+                                        <td colspan="6" class="text-center" style=" background-color:#e1e9d2; font-size:1em; color:black;">
+                                            <b style="font-size:1.3em;">
+                                                Niagara South Shared Care Palliative Care Team
+                                            </b><br>
+                                            555 Prince Charles Drive North, Welland, ON  L3C 6B5<br>
+                                            Tel: 905-735-1701                  Fax: 905-735-1703
+
+                                        </td>
+                                    </tr>
+                                        <tr>
+                                            <th>
+                                                @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.FNameSortParm }, new { @style = "color:black; text-decoration:none;" })
+                                            </th>
+                                            <th>
+                                                @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.LNameSortParm }, new { @style = "color:black; text-decoration:none;" })
+                                            </th>
+                                            <th>
+                                                @Html.ActionLink("Position", "Index", new { sortOrder = ViewBag.PositionSortParm }, new { @style = "color:black; text-decoration:none;" })
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Phone)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.EXT)
+                                            </th>
+                                        </tr>
+                                        NS++;
+                                }
+                                if (item.Location.Contains("Niagara South"))
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LastName)
+                                        </td>
+                                        <td>
+
+                                            <div class="bs-example">
+                                                <a href="#" style="text-decoration:none; color:black;" data-trigger="hover" data-toggle="popover" data-html="true" title="
+                                                    <strong>Areas Of Responsibility</strong>" data-content='
+                                                    Leadership Team Member<br />
+                                                    Finance Lead<br />
+                                                    IT Lead<br />
+                                                    Facilities Lead<br />
+                                                    Administration Lead
+                                                    '>@Html.DisplayFor(model => item.Position)
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Phone)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.EXT)
+                                        </td>
+                                        <td>
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <a href="@Url.Action("Delete", new { id = item.ContactID })" style="font-size:1em; color:black; padding-left:5px; float:right;">
+                                                    <i class="glyphicon glyphicon-trash"></i>
+                                                    <span class="sr-only" style="text-align:right;">Delete</span>
+                                                </a>
+                                                <a href="@Url.Action("Edit", new { id = item.ContactID })" style="font-size:1em; color:black; float:right;">
+                                                    <i class="glyphicon glyphicon-pencil"></i>
+                                                    <span class="sr-only" style="text-align:right;">Edit</span>
+                                                </a>
+                                            }
+
+                                            @*////This will add a details view if neccessary////*@
+                                                @*@Html.ActionLink("Details", "Details", new { id = item.ID }) |*@
+                                            </td>
+                                        </tr>
+                                }
+                            }
                         }
                     </table>
-                    <!-- Large modal -->
-                    @*<button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-lg">Position</button>
 
-                        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    ...
-                                </div>
-                            </div>
-                        </div>*@
                 </div>
             }
         </div>

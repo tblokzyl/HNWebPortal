@@ -8,6 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using HospiceWebPortal.Models;
 using HNWebPortal.Models;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
+using System.Web.Helpers;
 
 namespace HospiceWebPortal.Controllers
 {
@@ -63,6 +66,29 @@ namespace HospiceWebPortal.Controllers
             return View(contacts.ToList());
         }
 
+        public void Export()
+        {
+            List<Contact> contacts = new List<Contact>();
+            contacts = db.Contacts.ToList();
+
+            WebGrid grid = new WebGrid(source: contacts, canPage: false, canSort: false);
+
+            string gridData = grid.GetHtml(
+                columns:grid.Columns(
+                        grid.Column("FirstName", "First Name"),
+                        grid.Column("LastName", "Last Name"),
+                        grid.Column("Phone", "Phone"),
+                        grid.Column("EXT", "EXT")
+                        )
+                    ).ToString();
+
+            Response.ClearContent();
+            Response.AddHeader("content-disposition", "attachment; filename=ContactInfo.xls");
+            Response.ContentType = "application/excel";
+            Response.Write(gridData);
+            Response.End();
+        }
+
         // GET: Contacts/Details/5
         public ActionResult Details(int? id)
         {
@@ -90,7 +116,7 @@ namespace HospiceWebPortal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,Position,Phone,EXT")] Contact contact)
+        public ActionResult Create([Bind(Include = "ContactID,FirstName,LastName,Position,Location,Phone,EXT")] Contact contact)
         {
             ModelBinders.Binders.DefaultBinder = new TrimModelBinder();
             if (ModelState.IsValid)
@@ -123,7 +149,7 @@ namespace HospiceWebPortal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,Position,Phone,EXT")] Contact contact)
+        public ActionResult Edit([Bind(Include = "ContactID,FirstName,LastName,Position,Location,Phone,EXT")] Contact contact)
         {
             ModelBinders.Binders.DefaultBinder = new TrimModelBinder();
             if (ModelState.IsValid)
