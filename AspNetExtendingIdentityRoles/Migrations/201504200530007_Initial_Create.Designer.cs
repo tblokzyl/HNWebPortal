@@ -13,7 +13,7 @@ namespace HNWebPortal.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201504160740492_Initial_Create"; }
+            get { return "201504200530007_Initial_Create"; }
         }
         
         string IMigrationMetadata.Source

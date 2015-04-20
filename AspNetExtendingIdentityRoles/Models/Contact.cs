@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace HospiceWebPortal.Models
 {
@@ -37,9 +38,10 @@ namespace HospiceWebPortal.Models
         [StringLength(100, ErrorMessage = "Location cannot be more than 100 characters long.")]
         public string Location { get; set; }
 
-        //[Required(ErrorMessage = "You cannot leave the position description blank!")]
-        //[StringLength(500, ErrorMessage = "Position Description be more than 500 characters long.")]
-        //public string Description { get; set; }
+        [AllowHtml]
+        [DataType(DataType.MultilineText)]
+        [StringLength(500, ErrorMessage = "Position Description cannot be more than 500 characters long.")]
+        public string Description { get; set; }
 
         //[Required(ErrorMessage = "You cannot leave the phone number blank.")]
         [RegularExpression("^\\d{10}$", ErrorMessage = "The phone number must be exactly 10 numeric digits.")]
@@ -50,8 +52,5 @@ namespace HospiceWebPortal.Models
         [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Count must be a natural number")]
         public int EXT { get; set; }
 
-        public virtual ICollection<Announcement> Announcements { get; set; }
-
-        public virtual ICollection<Resource> Resources { get; set; }
     }
 }

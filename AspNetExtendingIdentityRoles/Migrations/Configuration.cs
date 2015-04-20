@@ -467,58 +467,58 @@ namespace HNWebPortal.Migrations
             if (!success == true) return success;
 
             success = idManager.CreateRole("User", "Limited User Access");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Staff-Community", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Outreach", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Staff-Residential", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("New Staff", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Admin", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Leadership", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Audit & Finance", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Community Relations", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Governance", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Operations & Quality", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("New Board Members", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("New Volunteers", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Admin-Non-Client", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Event-Non-Client", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Welcome Desk", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Volunteers-Residential", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Volunteers-Community", "Unknown");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateRole("Day Hospice", "Unknown");
             if (!success) return success;
@@ -583,52 +583,52 @@ namespace HNWebPortal.Migrations
             // be valid under the password rules for the application, 
             // or the process will abort:
             success = idManager.CreateUser(newUser, "Password1");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateUser(newUser1, "Password2");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateUser(newUser2, "Password3");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateUser(newUser3, "Password1");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateUser(newUser4, "Password1");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateUser(newUser5, "Password1");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.CreateUser(newUser6, "Password1");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.AddUserToRole(newUser.Id, "Admin");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.AddUserToRole(newUser.Id, "CanEdit");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.AddUserToRole(newUser.Id, "User");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.AddUserToRole(newUser1.Id, "Operations & Quality");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.AddUserToRole(newUser2.Id, "Event-Non-Client");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.AddUserToRole(newUser3.Id, "Leadership");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.AddUserToRole(newUser4.Id, "Day Hospice");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.AddUserToRole(newUser5.Id, "Welcome Desk");
-            if (!success) return success;
+            if (!success == true) return success;
 
             success = idManager.AddUserToRole(newUser6.Id, "Admin");
-            if (!success) return success;
+            if (!success == true) return success;
 
             return success;
         }

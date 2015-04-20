@@ -85,7 +85,6 @@
                         <div class="input-group-btn">
                             <button class="btn btn-default" style="padding:6px 7px 6px 7px;" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                             <button class="btn btn-default" style="padding:6px 7px 6px 7px;">@Html.ActionLink(" ", "Index")<i class="glyphicon glyphicon-remove"></i></button>
-                            <button class="btn btn-default" style="padding:6px 7px 6px 7px;">@Html.ActionLink(" ", "Index")<i class="glyphicon glyphicon-cog"></i></button>
                         </div>
                     </div>
                 </form>
@@ -107,7 +106,7 @@
                 if(User.IsInRole("Admin"))
                 {
                     <div style="margin:20px 0 0px 18px; line-height:40px;">
-                        @Html.ActionLink("Create New Contact", "Create", null, null, new { @class="btn btn-"}) <a href="@Url.Action("Export", "Contacts")" class="pull-right btn btn-success" style="background-color:#1B5C00; margin:5px 10px 5px 5px;">
+                        @Html.ActionLink("Create New Contact", "Create", null, null, new { @class = "btn btn-default", @style = "margin-left:-8px; margin-top:2px;" }) <a href="@Url.Action("Export", "Contacts")" class="pull-right btn btn-success" style="background-color:#1B5C00; margin:5px 10px 5px 5px;">
                         Export Contacts &nbsp;
                         <span class="glyphicon glyphicon-download" />
                         </a>
@@ -255,11 +254,7 @@
                                             <div class="bs-example">
                                                 <a href="#" style="text-decoration:none; color:black;" data-trigger="hover" data-toggle="popover" data-html="true" title="
                                                     <strong>Areas Of Responsibility</strong>" data-content='
-                                                    Leadership Team Member<br />
-                                                    Finance Lead<br />
-                                                    IT Lead<br />
-                                                    Facilities Lead<br />
-                                                    Administration Lead
+                                                    @Html.Raw(item.Description)
                                                     '>@Html.DisplayFor(model => item.Position)
                                                 </a>
                                             </div>

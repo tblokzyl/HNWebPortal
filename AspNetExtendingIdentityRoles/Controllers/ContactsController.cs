@@ -116,7 +116,7 @@ namespace HospiceWebPortal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContactID,FirstName,LastName,Position,Location,Phone,EXT")] Contact contact)
+        public ActionResult Create([Bind(Include = "ContactID,FirstName,LastName,Position,Description,Location,Phone,EXT")] Contact contact)
         {
             ModelBinders.Binders.DefaultBinder = new TrimModelBinder();
             if (ModelState.IsValid)
@@ -149,7 +149,7 @@ namespace HospiceWebPortal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ContactID,FirstName,LastName,Position,Location,Phone,EXT")] Contact contact)
+        public ActionResult Edit([Bind(Include = "ContactID,FirstName,LastName,Position,Description,Location,Phone,EXT")] Contact contact)
         {
             ModelBinders.Binders.DefaultBinder = new TrimModelBinder();
             if (ModelState.IsValid)
